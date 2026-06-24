@@ -1,0 +1,274 @@
+[gd_scene format=3 uid="uid://hd88oogkf2g8"]
+
+[ext_resource type="Script" uid="uid://bdxd1gp5gxpt2" path="res://TitleScreen/MenuController.gd" id="1_bkvni"]
+[ext_resource type="FontFile" uid="uid://dn2im1fnexyp6" path="res://Fonts/BoldPixels.ttf" id="3_ntd8f"]
+[ext_resource type="Texture2D" uid="uid://7ogg4ga8td2s" path="res://TitleScreen/Background.jpg" id="3_uidrc"]
+[ext_resource type="Texture2D" uid="uid://domhhbhxlswvq" path="res://TitleScreen/LevelSelBg.png" id="4_uidrc"]
+[ext_resource type="Texture2D" uid="uid://dkdvggnlpwqvj" path="res://TitleScreen/btn.png" id="5_ufa0f"]
+
+[sub_resource type="FontVariation" id="FontVariation_uebgo"]
+variation_embolden = 1.5
+spacing_glyph = 9
+
+[sub_resource type="FontVariation" id="FontVariation_hsg44"]
+spacing_glyph = -2
+
+[sub_resource type="FontVariation" id="FontVariation_ufa0f"]
+base_font = ExtResource("3_ntd8f")
+variation_embolden = 0.5
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lfvtt"]
+texture = ExtResource("4_uidrc")
+modulate_color = Color(1, 1, 1, 0.9411765)
+
+[sub_resource type="FontVariation" id="FontVariation_lfvtt"]
+base_font = ExtResource("3_ntd8f")
+variation_embolden = 0.55
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gbhba"]
+texture = ExtResource("5_ufa0f")
+
+[node name="MainMenu" type="Control" unique_id=1264059519 node_paths=PackedStringArray("MenuOptions")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bkvni")
+MenuOptions = NodePath("MenuOptions")
+BaseFont = ExtResource("3_ntd8f")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1528217211]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_uidrc")
+
+[node name="Title" type="Label" parent="." unique_id=1444501047]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.12
+anchor_right = 0.12
+anchor_bottom = 0.2
+size_flags_horizontal = 0
+theme_override_fonts/font = SubResource("FontVariation_uebgo")
+theme_override_font_sizes/font_size = 100
+text = "Ghastly"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SubTitle" type="Label" parent="." unique_id=627562416]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.13
+anchor_top = 0.24
+anchor_right = 0.13
+anchor_bottom = 0.28
+size_flags_horizontal = 0
+theme_override_fonts/font = SubResource("FontVariation_hsg44")
+theme_override_font_sizes/font_size = 40
+text = "> An escape room puzzle game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MenuOptions" type="VBoxContainer" parent="." unique_id=1643823882]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.7
+anchor_top = 0.1
+anchor_right = 0.95
+anchor_bottom = 0.5
+
+[node name="Play" type="Label" parent="MenuOptions" unique_id=1759347305]
+layout_mode = 2
+size_flags_vertical = 3
+offset_transform_enabled = true
+theme_override_fonts/font = SubResource("FontVariation_ufa0f")
+theme_override_font_sizes/font_size = 100
+text = "> Play"
+vertical_alignment = 1
+
+[node name="Tutorial" type="Label" parent="MenuOptions" unique_id=1338614943]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 60
+text = "> Tutorial"
+vertical_alignment = 1
+
+[node name="Options" type="Label" parent="MenuOptions" unique_id=972156681]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 60
+text = "> Options"
+vertical_alignment = 1
+
+[node name="Exit" type="Label" parent="MenuOptions" unique_id=1774568354]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 60
+text = "> Exit"
+vertical_alignment = 1
+
+[node name="LevelSelector" type="Panel" parent="." unique_id=1139774278]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -200.0
+offset_right = 400.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxTexture_lfvtt")
+
+[node name="Title" type="Label" parent="LevelSelector" unique_id=820828040]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.25
+theme_override_font_sizes/font_size = 50
+text = "Pick a Level"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="LevelSelector" unique_id=904865406]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.23
+anchor_right = 0.9
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 5
+theme_override_constants/v_separation = 10
+columns = 5
+
+[node name="Lv1" type="Label" parent="LevelSelector/GridContainer" unique_id=1422356185]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_fonts/font = SubResource("FontVariation_lfvtt")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_gbhba")
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lv2" type="Label" parent="LevelSelector/GridContainer" unique_id=781320688]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_fonts/font = SubResource("FontVariation_lfvtt")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_gbhba")
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lv3" type="Label" parent="LevelSelector/GridContainer" unique_id=672947642]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_fonts/font = SubResource("FontVariation_lfvtt")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_gbhba")
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lv4" type="Label" parent="LevelSelector/GridContainer" unique_id=1686786290]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_fonts/font = SubResource("FontVariation_lfvtt")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_gbhba")
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lv5" type="Label" parent="LevelSelector/GridContainer" unique_id=1500818880]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_fonts/font = SubResource("FontVariation_lfvtt")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_gbhba")
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lv6" type="Label" parent="LevelSelector/GridContainer" unique_id=1510575624]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_fonts/font = SubResource("FontVariation_lfvtt")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_gbhba")
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lv7" type="Label" parent="LevelSelector/GridContainer" unique_id=16974741]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_fonts/font = SubResource("FontVariation_lfvtt")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_gbhba")
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lv8" type="Label" parent="LevelSelector/GridContainer" unique_id=283213084]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_fonts/font = SubResource("FontVariation_lfvtt")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_gbhba")
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lv9" type="Label" parent="LevelSelector/GridContainer" unique_id=531713161]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_fonts/font = SubResource("FontVariation_lfvtt")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_gbhba")
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lv10" type="Label" parent="LevelSelector/GridContainer" unique_id=959451488]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_fonts/font = SubResource("FontVariation_lfvtt")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_gbhba")
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
