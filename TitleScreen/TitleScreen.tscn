@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://7ogg4ga8td2s" path="res://TitleScreen/Background.jpg" id="3_uidrc"]
 [ext_resource type="Texture2D" uid="uid://domhhbhxlswvq" path="res://TitleScreen/LevelSelBg.png" id="4_uidrc"]
 [ext_resource type="Texture2D" uid="uid://dkdvggnlpwqvj" path="res://TitleScreen/btn.png" id="5_ufa0f"]
+[ext_resource type="Texture2D" uid="uid://bb2k87tprkln7" path="res://TitleScreen/Highlight.png" id="6_lawj5"]
 
 [sub_resource type="FontVariation" id="FontVariation_uebgo"]
 variation_embolden = 1.5
@@ -21,6 +22,9 @@ variation_embolden = 0.5
 texture = ExtResource("4_uidrc")
 modulate_color = Color(1, 1, 1, 0.9411765)
 
+[sub_resource type="FontVariation" id="FontVariation_4x3tk"]
+variation_embolden = 0.8
+
 [sub_resource type="FontVariation" id="FontVariation_lfvtt"]
 base_font = ExtResource("3_ntd8f")
 variation_embolden = 0.55
@@ -28,7 +32,7 @@ variation_embolden = 0.55
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gbhba"]
 texture = ExtResource("5_ufa0f")
 
-[node name="MainMenu" type="Control" unique_id=1264059519 node_paths=PackedStringArray("MenuOptions")]
+[node name="MainMenu" type="Control" unique_id=1264059519 node_paths=PackedStringArray("MenuOptions", "MenuObjects", "LevelHighlight", "LevelGrid")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -38,6 +42,9 @@ grow_vertical = 2
 script = ExtResource("1_bkvni")
 MenuOptions = NodePath("MenuOptions")
 BaseFont = ExtResource("3_ntd8f")
+MenuObjects = [NodePath("LevelSelector")]
+LevelHighlight = NodePath("LevelSelector/Highlight")
+LevelGrid = NodePath("LevelSelector/GridContainer")
 
 [node name="Background" type="TextureRect" parent="." unique_id=1528217211]
 layout_mode = 1
@@ -115,6 +122,7 @@ text = "> Exit"
 vertical_alignment = 1
 
 [node name="LevelSelector" type="Panel" parent="." unique_id=1139774278]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -134,8 +142,9 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_lfvtt")
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
-anchor_bottom = 0.25
-theme_override_font_sizes/font_size = 50
+anchor_bottom = 0.284
+theme_override_fonts/font = SubResource("FontVariation_4x3tk")
+theme_override_font_sizes/font_size = 60
 text = "Pick a Level"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -143,21 +152,21 @@ vertical_alignment = 1
 [node name="GridContainer" type="GridContainer" parent="LevelSelector" unique_id=904865406]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.1
-anchor_top = 0.23
-anchor_right = 0.9
-anchor_bottom = 0.9
+anchor_left = 0.5
+anchor_top = 0.594
+anchor_right = 0.5
+anchor_bottom = 0.594
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/h_separation = 5
-theme_override_constants/v_separation = 10
+theme_override_constants/h_separation = 30
+theme_override_constants/v_separation = 30
 columns = 5
 
 [node name="Lv1" type="Label" parent="LevelSelector/GridContainer" unique_id=1422356185]
 custom_minimum_size = Vector2(100, 100)
+custom_maximum_size = Vector2(100, 100)
 layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
+size_flags_horizontal = 4
 theme_override_fonts/font = SubResource("FontVariation_lfvtt")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxTexture_gbhba")
@@ -168,8 +177,7 @@ vertical_alignment = 1
 [node name="Lv2" type="Label" parent="LevelSelector/GridContainer" unique_id=781320688]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
+size_flags_horizontal = 4
 theme_override_fonts/font = SubResource("FontVariation_lfvtt")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxTexture_gbhba")
@@ -180,8 +188,7 @@ vertical_alignment = 1
 [node name="Lv3" type="Label" parent="LevelSelector/GridContainer" unique_id=672947642]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
+size_flags_horizontal = 4
 theme_override_fonts/font = SubResource("FontVariation_lfvtt")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxTexture_gbhba")
@@ -192,8 +199,7 @@ vertical_alignment = 1
 [node name="Lv4" type="Label" parent="LevelSelector/GridContainer" unique_id=1686786290]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
+size_flags_horizontal = 4
 theme_override_fonts/font = SubResource("FontVariation_lfvtt")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxTexture_gbhba")
@@ -204,8 +210,7 @@ vertical_alignment = 1
 [node name="Lv5" type="Label" parent="LevelSelector/GridContainer" unique_id=1500818880]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
+size_flags_horizontal = 4
 theme_override_fonts/font = SubResource("FontVariation_lfvtt")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxTexture_gbhba")
@@ -216,8 +221,7 @@ vertical_alignment = 1
 [node name="Lv6" type="Label" parent="LevelSelector/GridContainer" unique_id=1510575624]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
+size_flags_horizontal = 4
 theme_override_fonts/font = SubResource("FontVariation_lfvtt")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxTexture_gbhba")
@@ -228,8 +232,7 @@ vertical_alignment = 1
 [node name="Lv7" type="Label" parent="LevelSelector/GridContainer" unique_id=16974741]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
+size_flags_horizontal = 4
 theme_override_fonts/font = SubResource("FontVariation_lfvtt")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxTexture_gbhba")
@@ -240,8 +243,7 @@ vertical_alignment = 1
 [node name="Lv8" type="Label" parent="LevelSelector/GridContainer" unique_id=283213084]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
+size_flags_horizontal = 4
 theme_override_fonts/font = SubResource("FontVariation_lfvtt")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxTexture_gbhba")
@@ -252,8 +254,7 @@ vertical_alignment = 1
 [node name="Lv9" type="Label" parent="LevelSelector/GridContainer" unique_id=531713161]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
+size_flags_horizontal = 4
 theme_override_fonts/font = SubResource("FontVariation_lfvtt")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxTexture_gbhba")
@@ -264,11 +265,27 @@ vertical_alignment = 1
 [node name="Lv10" type="Label" parent="LevelSelector/GridContainer" unique_id=959451488]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
+size_flags_horizontal = 4
 theme_override_fonts/font = SubResource("FontVariation_lfvtt")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxTexture_gbhba")
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Highlight" type="TextureRect" parent="LevelSelector" unique_id=1909953507]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -80.0
+offset_right = 80.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("6_lawj5")
+expand_mode = 1
