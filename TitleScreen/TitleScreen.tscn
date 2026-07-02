@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://hd88oogkf2g8"]
 
 [ext_resource type="Script" uid="uid://bdxd1gp5gxpt2" path="res://TitleScreen/MenuController.gd" id="1_bkvni"]
+[ext_resource type="Texture2D" uid="uid://dm0tyu0ox1hqi" path="res://TitleScreen/lock.jpg" id="3_4x3tk"]
 [ext_resource type="FontFile" uid="uid://dn2im1fnexyp6" path="res://Fonts/BoldPixels.ttf" id="3_ntd8f"]
 [ext_resource type="Texture2D" uid="uid://7ogg4ga8td2s" path="res://TitleScreen/Background.jpg" id="3_uidrc"]
 [ext_resource type="Texture2D" uid="uid://domhhbhxlswvq" path="res://TitleScreen/LevelSelBg.png" id="4_uidrc"]
@@ -32,7 +33,16 @@ variation_embolden = 0.55
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gbhba"]
 texture = ExtResource("5_ufa0f")
 
-[node name="MainMenu" type="Control" unique_id=1264059519 node_paths=PackedStringArray("MenuOptions", "MenuObjects", "LevelHighlight", "LevelGrid")]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0w17o"]
+texture = ExtResource("4_uidrc")
+
+[sub_resource type="FontVariation" id="FontVariation_gbhba"]
+base_font = ExtResource("3_ntd8f")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_urqtg"]
+texture = ExtResource("5_ufa0f")
+
+[node name="MainMenu" type="Control" unique_id=1264059519 node_paths=PackedStringArray("MenuOptions", "MenuObjects", "LevelHighlight", "LevelGrid", "TutorialLabel")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -42,9 +52,12 @@ grow_vertical = 2
 script = ExtResource("1_bkvni")
 MenuOptions = NodePath("MenuOptions")
 BaseFont = ExtResource("3_ntd8f")
-MenuObjects = [NodePath("LevelSelector")]
+MenuObjects = [NodePath("LevelSelector"), NodePath("Tutorial"), NodePath("Options")]
 LevelHighlight = NodePath("LevelSelector/Highlight")
 LevelGrid = NodePath("LevelSelector/GridContainer")
+TutorialLabel = NodePath("Tutorial/TextureRect/TutorialText")
+TutorialTexts = Array[String](["Welcome to Ghastly, an escape room puzzle game! \\n \\n (Controls are keyboard only, use arrow keys, enter and escape to navigate) \\n \\n Next -->", "bingo bungo bongo", "leave pls"])
+LockIcon = ExtResource("3_4x3tk")
 
 [node name="Background" type="TextureRect" parent="." unique_id=1528217211]
 layout_mode = 1
@@ -289,3 +302,90 @@ grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
 texture = ExtResource("6_lawj5")
 expand_mode = 1
+
+[node name="Tutorial" type="Panel" parent="." unique_id=106464062]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -450.0
+offset_top = -300.0
+offset_right = 450.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxTexture_0w17o")
+
+[node name="Title" type="Label" parent="Tutorial" unique_id=1779405055]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.2
+theme_override_fonts/font = SubResource("FontVariation_4x3tk")
+theme_override_font_sizes/font_size = 60
+text = "TUTORIAL"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Tutorial" unique_id=422932826]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.2
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_ufa0f")
+expand_mode = 1
+
+[node name="TutorialText" type="Label" parent="Tutorial/TextureRect" unique_id=324610663]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("FontVariation_gbhba")
+theme_override_font_sizes/font_size = 50
+text = "Welcome to Ghastly, an escape room puzzle game!
+
+(Controls are keyboard only, use arrow keys, enter and escape to navigate)
+
+Next -->"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Options" type="Panel" parent="." unique_id=1058500089]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -450.0
+offset_right = 350.0
+offset_bottom = 450.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxTexture_urqtg")
+
+[node name="Title" type="Label" parent="Options" unique_id=369432138]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.13
+theme_override_fonts/font = SubResource("FontVariation_4x3tk")
+theme_override_font_sizes/font_size = 60
+text = "OPTIONS"
+horizontal_alignment = 1
+vertical_alignment = 1
