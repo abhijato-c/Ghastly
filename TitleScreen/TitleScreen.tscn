@@ -1,12 +1,23 @@
 [gd_scene format=3 uid="uid://hd88oogkf2g8"]
 
 [ext_resource type="Script" uid="uid://bdxd1gp5gxpt2" path="res://TitleScreen/MenuController.gd" id="1_bkvni"]
-[ext_resource type="Texture2D" uid="uid://dm0tyu0ox1hqi" path="res://TitleScreen/lock.jpg" id="3_4x3tk"]
 [ext_resource type="FontFile" uid="uid://dn2im1fnexyp6" path="res://Fonts/BoldPixels.ttf" id="3_ntd8f"]
-[ext_resource type="Texture2D" uid="uid://7ogg4ga8td2s" path="res://TitleScreen/Background.jpg" id="3_uidrc"]
-[ext_resource type="Texture2D" uid="uid://domhhbhxlswvq" path="res://TitleScreen/LevelSelBg.png" id="4_uidrc"]
-[ext_resource type="Texture2D" uid="uid://dkdvggnlpwqvj" path="res://TitleScreen/btn.png" id="5_ufa0f"]
-[ext_resource type="Texture2D" uid="uid://bb2k87tprkln7" path="res://TitleScreen/Highlight.png" id="6_lawj5"]
+[ext_resource type="Texture2D" uid="uid://bo1qwxuvtb5b0" path="res://TitleScreen/Textures/Lock.png" id="3_y2sa3"]
+[ext_resource type="Texture2D" uid="uid://r75dmw6fl773" path="res://TitleScreen/Textures/Backgrounds/Background.png" id="4_4x3tk"]
+[ext_resource type="Texture2D" uid="uid://domhhbhxlswvq" path="res://TitleScreen/Textures/Backgrounds/LevelSelBg.png" id="4_uidrc"]
+[ext_resource type="Texture2D" uid="uid://df07o8680kqt6" path="res://TitleScreen/Textures/Levels/1.png" id="6_y2sa3"]
+[ext_resource type="Texture2D" uid="uid://cc53w8pib2fi" path="res://TitleScreen/Textures/Levels/2.png" id="7_2v14t"]
+[ext_resource type="Texture2D" uid="uid://cqnpar06ek87x" path="res://TitleScreen/Textures/Levels/3.png" id="8_je3rk"]
+[ext_resource type="Texture2D" uid="uid://ifw8rtjd1gxd" path="res://TitleScreen/Textures/Levels/4.png" id="9_lps4d"]
+[ext_resource type="Texture2D" uid="uid://cifl3mqd8f8t7" path="res://TitleScreen/Textures/Levels/5.png" id="10_6t2m3"]
+[ext_resource type="Texture2D" uid="uid://bqmqa2v8moyyp" path="res://TitleScreen/Textures/Levels/6.png" id="11_od42v"]
+[ext_resource type="Texture2D" uid="uid://dmqjwfwj661rm" path="res://TitleScreen/Textures/Levels/7.png" id="12_wv6wn"]
+[ext_resource type="Texture2D" uid="uid://bd6wlnedn7vjh" path="res://TitleScreen/Textures/Levels/8.png" id="13_2ex8d"]
+[ext_resource type="Texture2D" uid="uid://dhcaul715j67" path="res://TitleScreen/Textures/Levels/9.png" id="14_y0tqu"]
+[ext_resource type="Texture2D" uid="uid://vrp5et8tkqs1" path="res://TitleScreen/Textures/Levels/10.png" id="15_2uhbm"]
+[ext_resource type="Texture2D" uid="uid://d87aokktri6f" path="res://TitleScreen/Textures/Highlight.png" id="16_y2sa3"]
+[ext_resource type="Texture2D" uid="uid://b8w27xm3e2i7h" path="res://TitleScreen/Textures/Backgrounds/TutorialBg.png" id="17_2v14t"]
+[ext_resource type="Texture2D" uid="uid://bdbnnq6cbibv" path="res://TitleScreen/Textures/Backgrounds/OptionsBg.png" id="18_2v14t"]
 
 [sub_resource type="FontVariation" id="FontVariation_uebgo"]
 variation_embolden = 1.5
@@ -24,23 +35,57 @@ texture = ExtResource("4_uidrc")
 modulate_color = Color(1, 1, 1, 0.9411765)
 
 [sub_resource type="FontVariation" id="FontVariation_4x3tk"]
-variation_embolden = 0.8
+variation_embolden = 0.5
 
 [sub_resource type="FontVariation" id="FontVariation_lfvtt"]
 base_font = ExtResource("3_ntd8f")
 variation_embolden = 0.55
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_660gt"]
+texture = ExtResource("6_y2sa3")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eb6va"]
+texture = ExtResource("7_2v14t")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_moaws"]
+texture = ExtResource("8_je3rk")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sovc6"]
+texture = ExtResource("9_lps4d")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eq1nl"]
+texture = ExtResource("10_6t2m3")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q77h3"]
+texture = ExtResource("11_od42v")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2hjge"]
+texture = ExtResource("12_wv6wn")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0weyl"]
+texture = ExtResource("13_2ex8d")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_430so"]
+texture = ExtResource("14_y0tqu")
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gbhba"]
-texture = ExtResource("5_ufa0f")
+texture = ExtResource("15_2uhbm")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0w17o"]
-texture = ExtResource("4_uidrc")
+texture = ExtResource("17_2v14t")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gbhba"]
+bg_color = Color(0, 0, 0, 0.7058824)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
 
 [sub_resource type="FontVariation" id="FontVariation_gbhba"]
 base_font = ExtResource("3_ntd8f")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_urqtg"]
-texture = ExtResource("5_ufa0f")
+texture = ExtResource("18_2v14t")
 
 [node name="MainMenu" type="Control" unique_id=1264059519 node_paths=PackedStringArray("MenuOptions", "MenuObjects", "LevelHighlight", "LevelGrid", "TutorialLabel")]
 layout_mode = 3
@@ -55,9 +100,9 @@ BaseFont = ExtResource("3_ntd8f")
 MenuObjects = [NodePath("LevelSelector"), NodePath("Tutorial"), NodePath("Options")]
 LevelHighlight = NodePath("LevelSelector/Highlight")
 LevelGrid = NodePath("LevelSelector/GridContainer")
-TutorialLabel = NodePath("Tutorial/TextureRect/TutorialText")
+TutorialLabel = NodePath("Tutorial/Backg/TutorialText")
 TutorialTexts = Array[String](["Welcome to Ghastly, an escape room puzzle game! \\n \\n (Controls are keyboard only, use arrow keys, enter and escape to navigate) \\n \\n Next -->", "bingo bungo bongo", "leave pls"])
-LockIcon = ExtResource("3_4x3tk")
+LockIcon = ExtResource("3_y2sa3")
 
 [node name="Background" type="TextureRect" parent="." unique_id=1528217211]
 layout_mode = 1
@@ -66,7 +111,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_uidrc")
+texture = ExtResource("4_4x3tk")
 
 [node name="Title" type="Label" parent="." unique_id=1444501047]
 layout_mode = 1
@@ -137,15 +182,15 @@ vertical_alignment = 1
 [node name="LevelSelector" type="Panel" parent="." unique_id=1139774278]
 visible = false
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -400.0
-offset_top = -200.0
+offset_top = -210.0
 offset_right = 400.0
-offset_bottom = 200.0
+offset_bottom = 210.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
@@ -154,10 +199,11 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_lfvtt")
 [node name="Title" type="Label" parent="LevelSelector" unique_id=820828040]
 layout_mode = 1
 anchors_preset = -1
+anchor_top = 0.08
 anchor_right = 1.0
-anchor_bottom = 0.284
+anchor_bottom = 0.2
 theme_override_fonts/font = SubResource("FontVariation_4x3tk")
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 55
 text = "Pick a Level"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -166,9 +212,9 @@ vertical_alignment = 1
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.594
+anchor_top = 0.6
 anchor_right = 0.5
-anchor_bottom = 0.594
+anchor_bottom = 0.6
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/h_separation = 30
@@ -182,8 +228,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = SubResource("FontVariation_lfvtt")
 theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = SubResource("StyleBoxTexture_gbhba")
-text = "1"
+theme_override_styles/normal = SubResource("StyleBoxTexture_660gt")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -193,8 +238,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = SubResource("FontVariation_lfvtt")
 theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = SubResource("StyleBoxTexture_gbhba")
-text = "1"
+theme_override_styles/normal = SubResource("StyleBoxTexture_eb6va")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -204,8 +248,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = SubResource("FontVariation_lfvtt")
 theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = SubResource("StyleBoxTexture_gbhba")
-text = "1"
+theme_override_styles/normal = SubResource("StyleBoxTexture_moaws")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -215,8 +258,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = SubResource("FontVariation_lfvtt")
 theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = SubResource("StyleBoxTexture_gbhba")
-text = "1"
+theme_override_styles/normal = SubResource("StyleBoxTexture_sovc6")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -226,8 +268,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = SubResource("FontVariation_lfvtt")
 theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = SubResource("StyleBoxTexture_gbhba")
-text = "1"
+theme_override_styles/normal = SubResource("StyleBoxTexture_eq1nl")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -237,8 +278,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = SubResource("FontVariation_lfvtt")
 theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = SubResource("StyleBoxTexture_gbhba")
-text = "1"
+theme_override_styles/normal = SubResource("StyleBoxTexture_q77h3")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -248,8 +288,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = SubResource("FontVariation_lfvtt")
 theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = SubResource("StyleBoxTexture_gbhba")
-text = "1"
+theme_override_styles/normal = SubResource("StyleBoxTexture_2hjge")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -259,8 +298,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = SubResource("FontVariation_lfvtt")
 theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = SubResource("StyleBoxTexture_gbhba")
-text = "1"
+theme_override_styles/normal = SubResource("StyleBoxTexture_0weyl")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -270,8 +308,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = SubResource("FontVariation_lfvtt")
 theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = SubResource("StyleBoxTexture_gbhba")
-text = "1"
+theme_override_styles/normal = SubResource("StyleBoxTexture_430so")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -282,25 +319,15 @@ size_flags_horizontal = 4
 theme_override_fonts/font = SubResource("FontVariation_lfvtt")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxTexture_gbhba")
-text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Highlight" type="TextureRect" parent="LevelSelector" unique_id=1909953507]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -80.0
-offset_top = -80.0
-offset_right = 80.0
-offset_bottom = 80.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 100.0
 pivot_offset_ratio = Vector2(0.5, 0.5)
-texture = ExtResource("6_lawj5")
+texture = ExtResource("16_y2sa3")
 expand_mode = 1
 
 [node name="Tutorial" type="Panel" parent="." unique_id=106464062]
@@ -323,27 +350,27 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_0w17o")
 [node name="Title" type="Label" parent="Tutorial" unique_id=1779405055]
 layout_mode = 1
 anchors_preset = -1
+anchor_top = 0.06
 anchor_right = 1.0
-anchor_bottom = 0.2
+anchor_bottom = 0.21
 theme_override_fonts/font = SubResource("FontVariation_4x3tk")
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 55
 text = "TUTORIAL"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="Tutorial" unique_id=422932826]
+[node name="Backg" type="Panel" parent="Tutorial" unique_id=592429376]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.05
 anchor_top = 0.2
 anchor_right = 0.95
-anchor_bottom = 0.95
+anchor_bottom = 0.9
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("5_ufa0f")
-expand_mode = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_gbhba")
 
-[node name="TutorialText" type="Label" parent="Tutorial/TextureRect" unique_id=324610663]
+[node name="TutorialText" type="Label" parent="Tutorial/Backg" unique_id=324610663]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.05
@@ -382,6 +409,7 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_urqtg")
 [node name="Title" type="Label" parent="Options" unique_id=369432138]
 layout_mode = 1
 anchors_preset = -1
+anchor_top = 0.05
 anchor_right = 1.0
 anchor_bottom = 0.13
 theme_override_fonts/font = SubResource("FontVariation_4x3tk")

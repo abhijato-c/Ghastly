@@ -40,7 +40,6 @@ func _ready() -> void:
 		file.close()
 		UnlockedLevel = 0
 	else:
-		print("existing")
 		var file: FileAccess = FileAccess.open(SavePath, FileAccess.READ)
 		var json = JSON.new()
 		var _res = json.parse(file.get_as_text())
