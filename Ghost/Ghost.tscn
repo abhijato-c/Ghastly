@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dsunmst42ixvw"]
+
+[ext_resource type="Script" uid="uid://d236a03kj1qmf" path="res://Ghost/Ghost.gd" id="1_43f78"]
+[ext_resource type="Texture2D" uid="uid://c5xayjosoutgi" path="res://Ghost/Ghost.png" id="2_agfr7"]
+
+[node name="Ghost" type="Area2D" unique_id=537655436]
+scale = Vector2(0.7, 0.7)
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+script = ExtResource("1_43f78")
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1681671716]
+texture = ExtResource("2_agfr7")
+
+[node name="Collider" type="CollisionPolygon2D" parent="." unique_id=655438407]
+polygon = PackedVector2Array(-70, -34, -20, -85, 20, -85, 70, -34, 70, -5, 80, -5, 80, 44, 53, 57, 53, 85, 14, 85, 14, 65, -10, 65, -10, 85, -50, 85, -50, 56, -80, 56, -80, -5, -70, -5)

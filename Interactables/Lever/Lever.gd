@@ -11,12 +11,12 @@ func _ready() -> void:
 func Activate():
 	Active = true
 	Sprite.play("On")
-	#Target.Activate()
+	Target.Activate()
 
 func Deactivate():
 	Active = false
 	Sprite.play("Off")
-	#Target.Deactivate()
+	Target.Deactivate()
 
 func Interact():
 	if Active:

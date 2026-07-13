@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://dq4ydqmguv0tw"]
+
+[ext_resource type="Script" uid="uid://b02y5mo26pnjq" path="res://Interactables/Lever/Lever.gd" id="1_pgtr7"]
+[ext_resource type="Texture2D" uid="uid://vsbraodamaq0" path="res://Interactables/Lever/Lever Off.png" id="2_wlxfh"]
+[ext_resource type="Texture2D" uid="uid://cxsvkmjn3t77n" path="res://Interactables/Lever/Lever On.png" id="3_l4wi3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lfvtt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_wlxfh")
+}],
+"loop": 1,
+"name": &"Off",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_l4wi3")
+}],
+"loop": 1,
+"name": &"On",
+"speed": 0.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lfvtt"]
+size = Vector2(522.22266, 511.11176)
+
+[node name="Lever" type="Area2D" unique_id=681793076 groups=["Interactables"]]
+scale = Vector2(0.15, 0.15)
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_pgtr7")
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=929105950]
+sprite_frames = SubResource("SpriteFrames_lfvtt")
+animation = &"Off"
+
+[node name="Boundary" type="CollisionShape2D" parent="." unique_id=719430721]
+position = Vector2(-0.00048828125, 0.00048828125)
+scale = Vector2(1.0000001, 1.0000001)
+shape = SubResource("RectangleShape2D_lfvtt")

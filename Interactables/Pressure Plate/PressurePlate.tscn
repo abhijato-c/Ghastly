@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://jxyn38vcuqje"]
+
+[ext_resource type="Script" uid="uid://d0gbmrk1ftxnf" path="res://Interactables/Pressure Plate/PressurePlate.gd" id="1_jrxkl"]
+[ext_resource type="Texture2D" uid="uid://dl516pxxhqhor" path="res://Interactables/Pressure Plate/Off.png" id="2_lvkgd"]
+[ext_resource type="Texture2D" uid="uid://cxsr6qpxxti81" path="res://Interactables/Pressure Plate/On.png" id="3_2rb88"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0w17o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_lvkgd")
+}],
+"loop": 1,
+"name": &"Off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_2rb88")
+}],
+"loop": 1,
+"name": &"On",
+"speed": 5.0
+}]
+
+[node name="Pressure Plate" type="StaticBody2D" unique_id=261105857]
+scale = Vector2(0.3, 0.3)
+collision_mask = 0
+script = ExtResource("1_jrxkl")
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1281141670]
+sprite_frames = SubResource("SpriteFrames_0w17o")
+animation = &"Off"
+
+[node name="ColliderOff" type="CollisionPolygon2D" parent="." unique_id=1739061702]
+visible = false
+scale = Vector2(0.9999998, 0.9999998)
+polygon = PackedVector2Array(-255.00012, 87.5, -255.00012, -2.5, -192.5, -2.5, -192.5, -47.5, -160, -47.5, -147.5, -70, -130, -87.5, 120, -87.5, 140, -67.5, 147.5, -47.5, 182.5, -47.5, 182.5, -5, 255.00012, -5, 255.00012, 87.5)
+
+[node name="ColliderOn" type="CollisionPolygon2D" parent="." unique_id=2012335311]
+visible = false
+position = Vector2(0, 45)
+scale = Vector2(0.9999995, 0.9999995)
+polygon = PackedVector2Array(-135.00012, -55.000244, -120.00012, -75.000244, 122.5, -75.000244, 135, -52.500244, 185, -52.500244, 185, -47.5, 257.5, -47.5, 257.5, 42.5, -255.00012, 42.5, -255.00012, -47.5, -190.00012, -47.5, -190.00012, -55.000244)
+
+[node name="DetectionZone" type="Area2D" parent="." unique_id=1330272955]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DetectionZone" unique_id=1640358618]
+visible = false
+polygon = PackedVector2Array(-177.5, -50, -157.5, -50, -125, -92.5, 109.99988, -92.5, 147.49988, -52.5, 177.49988, -52.5, 177.49988, -37.5, -177.5, -37.5)

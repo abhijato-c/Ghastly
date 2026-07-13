@@ -10,20 +10,22 @@ var OnPlate: Array[Node2D] = []
 var Pressed: bool = false
 
 func _ready() -> void:
-	DetectionZone.body_entered.connect(BodyEntered)
-	DetectionZone.body_exited.connect(BodyExited)
+	DetectionZone.body_entered.connect(ObjectEntered)
+	DetectionZone.area_entered.connect(ObjectEntered)
+	DetectionZone.body_exited.connect(ObjectExited)
+	DetectionZone.area_exited.connect(ObjectExited)
 	
 	Sprite.play("Off")
 	ColliderOn.disabled = true
 	ColliderOff.disabled = false
 
-func BodyEntered(Body: Node2D) -> void:
+func ObjectEntered(Body: Node2D) -> void:
 	if not Body in OnPlate:
 		OnPlate.append(Body)
 	if not Pressed:
 		Activate()
 
-func BodyExited(Body: Node2D) -> void:
+func ObjectExited(Body: Node2D) -> void:
 	if Body in OnPlate:
 		OnPlate.erase(Body)
 	if OnPlate.is_empty() and Pressed:
@@ -34,14 +36,14 @@ func Activate() -> void:
 	Sprite.play("On")
 	ColliderOn.set_deferred("disabled", false)
 	ColliderOff.set_deferred("disabled", true)
-	#Target.Activate()
+	Target.Activate()
 
 func Deactivate() -> void:
 	Pressed = false
 	Sprite.play("Off")
 	ColliderOn.set_deferred("disabled", true)
 	ColliderOff.set_deferred("disabled", false)
-	#Target.Deactivate()
+	Target.Deactivate()
 
 func Reset() -> void:
 	Deactivate()

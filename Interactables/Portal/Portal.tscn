@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://c2q621xffqeeb"]
+
+[ext_resource type="Script" uid="uid://dr7stuiqwnjca" path="res://Interactables/Portal/Portal.gd" id="1_amhaf"]
+[ext_resource type="Texture2D" uid="uid://v6g3y63us1ee" path="res://Interactables/Portal/Portal.png" id="2_q3xlm"]
+
+[node name="Portal" type="Area2D" unique_id=159542547]
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_amhaf")
+Level = 2
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=812775029]
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("2_q3xlm")
+
+[node name="Collider" type="CollisionPolygon2D" parent="." unique_id=359375673]
+polygon = PackedVector2Array(-116.666664, 280, 110, 280, 110, -126.666664, 0, -206.66666, -113.33333, -130)

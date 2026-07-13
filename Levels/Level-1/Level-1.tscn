@@ -2,118 +2,17 @@
 
 [ext_resource type="Texture2D" uid="uid://dwci3u7tlli57" path="res://Background.png" id="1_6ibbu"]
 [ext_resource type="TileSet" uid="uid://dyp81n1sjrjes" path="res://Tilemaps/TileSet.tres" id="1_nlyuk"]
-[ext_resource type="Script" uid="uid://byrw4jvti6i2l" path="res://Player/Player.gd" id="2_6ibbu"]
-[ext_resource type="Texture2D" uid="uid://bij5rxt0oja83" path="res://Player/Sprites/Idle/Player.png" id="2_nlyuk"]
-[ext_resource type="Texture2D" uid="uid://howrrdmq1eix" path="res://Player/Sprites/Jump/Player.png" id="3_6ibbu"]
-[ext_resource type="Texture2D" uid="uid://dep1foecrgqre" path="res://Player/Sprites/Move/PlayerMove0.png" id="4_48r8e"]
-[ext_resource type="Texture2D" uid="uid://djx17u4gr7pst" path="res://Player/Sprites/Move/PlayerMove1.png" id="5_75rqd"]
-[ext_resource type="Texture2D" uid="uid://chxv6bgv4tfpd" path="res://Player/Sprites/Move/PlayerMove2.png" id="6_jvf0n"]
-[ext_resource type="Script" uid="uid://d0gbmrk1ftxnf" path="res://Interactables/Pressure Plate/PressurePlate.gd" id="6_rtqpg"]
-[ext_resource type="Texture2D" uid="uid://vsm0ckx5wj57" path="res://Player/Sprites/Move/PlayerMove3.png" id="7_ddkr8"]
-[ext_resource type="Texture2D" uid="uid://dl516pxxhqhor" path="res://Interactables/Pressure Plate/Off.png" id="7_xkugm"]
-[ext_resource type="Texture2D" uid="uid://cxsr6qpxxti81" path="res://Interactables/Pressure Plate/On.png" id="8_wfc60"]
-[ext_resource type="Texture2D" uid="uid://b4uf1ea2cogdo" path="res://Player/Sprites/Move/PlayerMove4.png" id="8_xoicd"]
-[ext_resource type="Texture2D" uid="uid://b833j3g6vg4tw" path="res://Player/Sprites/Move/PlayerMove5.png" id="9_r377o"]
-[ext_resource type="Texture2D" uid="uid://bh8hba5o435wq" path="res://Player/Sprites/Move/PlayerMove6.png" id="10_rtqpg"]
-[ext_resource type="Texture2D" uid="uid://cme6gqmcniv8e" path="res://Player/Sprites/Move/PlayerMove7.png" id="11_xkugm"]
-[ext_resource type="Texture2D" uid="uid://vsbraodamaq0" path="res://Interactables/Lever/Lever Off.png" id="14_75rqd"]
-[ext_resource type="Script" uid="uid://dceq5aypi1cih" path="res://Player/Interact.gd" id="14_ddkr8"]
-[ext_resource type="Script" uid="uid://b02y5mo26pnjq" path="res://Interactables/Lever/Lever.gd" id="14_jvf0n"]
-[ext_resource type="Texture2D" uid="uid://cxsvkmjn3t77n" path="res://Interactables/Lever/Lever On.png" id="15_jvf0n"]
+[ext_resource type="Script" uid="uid://dtxsv08e1x1ql" path="res://Levels/LevelController.gd" id="1_yujy2"]
+[ext_resource type="PackedScene" uid="uid://dsunmst42ixvw" path="res://Ghost/Ghost.tscn" id="2_apecv"]
+[ext_resource type="PackedScene" uid="uid://li8681a1ikco" path="res://Interactables/Door/Door.tscn" id="5_yujy2"]
+[ext_resource type="PackedScene" uid="uid://jxyn38vcuqje" path="res://Interactables/Pressure Plate/PressurePlate.tscn" id="6_qjlir"]
+[ext_resource type="PackedScene" uid="uid://deudmk0pcpt0a" path="res://Player/Player.tscn" id="7_5vj71"]
+[ext_resource type="PackedScene" uid="uid://c2q621xffqeeb" path="res://Interactables/Portal/Portal.tscn" id="7_apecv"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_lfvtt"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("14_75rqd")
-}],
-"loop": 1,
-"name": &"Off",
-"speed": 0.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("15_jvf0n")
-}],
-"loop": 1,
-"name": &"On",
-"speed": 0.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lfvtt"]
-size = Vector2(522.22266, 511.11176)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_0w17o"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("7_xkugm")
-}],
-"loop": 1,
-"name": &"Off",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("8_wfc60")
-}],
-"loop": 1,
-"name": &"On",
-"speed": 5.0
-}]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_gbhba"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_nlyuk")
-}],
-"loop": 1,
-"name": &"Idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_6ibbu")
-}],
-"loop": 1,
-"name": &"Jump",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("4_48r8e")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_75rqd")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_jvf0n")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_ddkr8")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_xoicd")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_r377o")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_rtqpg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_xkugm")
-}],
-"loop": 1,
-"name": &"Move",
-"speed": 6.0
-}]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_gbhba"]
-radius = 341.59772
-
-[node name="Level1" type="Node2D" unique_id=974107710]
+[node name="Level1" type="Node2D" unique_id=974107710 node_paths=PackedStringArray("Player")]
+script = ExtResource("1_yujy2")
+Player = NodePath("Player")
+GhostPrefab = ExtResource("2_apecv")
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=1862056447]
 scroll_scale = Vector2(0.2, 0.2)
@@ -132,86 +31,34 @@ centered = false
 offset = Vector2(-100, -700)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1039470870]
-tile_map_data = PackedByteArray("AAAAAAUAAAAAAAIAAAAAAAQAAAAAAAEAAAAAAAMAAAAAAAEAAAAAAAIAAAAAAAEAAAAAAAEAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAP//AAAAAAAAAAABAP//AAABAAAAAAACAP//AAABAAAAAAADAP//AAABAAAAAAAEAP//AAABAAAAAAAFAP//AAABAAAAAAAGAP//AAABAAAAAAAHAP//AAABAAAAAAAIAP//AAABAAAAAAAJAP//AAABAAAAAAAKAP//AAACAAAAAAAKAAAAAAACAAEAAAAKAAEAAAACAAEAAAAKAAIAAAACAAEAAAAKAAMAAAACAAEAAAAKAAQAAAACAAEAAAAKAAUAAAACAAIAAAABAAUAAAABAAIAAAACAAUAAAABAAIAAAADAAUAAAABAAIAAAAEAAUAAAABAAIAAAAFAAUAAAABAAIAAAAGAAUAAAABAAIAAAAHAAUAAAABAAIAAAAIAAUAAAABAAIAAAAJAAUAAAABAAIAAAABAAQAAAABAAEAAAABAAMAAAABAAEAAAABAAIAAAABAAEAAAABAAEAAAABAAEAAAABAAAAAAABAAEAAAACAAAAAAABAAEAAAACAAEAAAABAAEAAAACAAIAAAABAAEAAAACAAMAAAABAAEAAAACAAQAAAABAAEAAAADAAMAAAABAAEAAAADAAIAAAABAAEAAAADAAEAAAABAAEAAAADAAAAAAABAAEAAAAEAAAAAAABAAEAAAAEAAEAAAABAAEAAAAEAAIAAAABAAEAAAAEAAMAAAABAAEAAAAEAAQAAAABAAEAAAAFAAQAAAABAAEAAAAFAAMAAAABAAEAAAAFAAIAAAABAAEAAAAFAAEAAAABAAEAAAAFAAAAAAABAAEAAAAGAAAAAAABAAEAAAAGAAEAAAABAAEAAAAGAAIAAAABAAEAAAAGAAMAAAABAAEAAAAGAAQAAAABAAEAAAAHAAQAAAABAAEAAAAHAAMAAAABAAEAAAAHAAIAAAABAAEAAAAHAAEAAAABAAEAAAAHAAAAAAABAAEAAAAIAAAAAAABAAEAAAAIAAEAAAABAAEAAAAIAAIAAAABAAEAAAAIAAMAAAABAAEAAAAIAAQAAAABAAEAAAAJAAQAAAABAAEAAAAJAAMAAAABAAEAAAAJAAIAAAABAAEAAAAJAAEAAAABAAEAAAAJAAAAAAABAAEAAAADAAQAAAABAAEAAAA=")
+tile_map_data = PackedByteArray("AAAAAAUAAAAAAAIAAAAAAAQAAAAAAAEAAAAAAAMAAAAAAAAAAAAKAAMAAAABAAAAAAAKAAQAAAABAAEAAAABAAUAAAABAAIAAAACAAUAAAABAAIAAAADAAUAAAABAAIAAAAEAAUAAAABAAIAAAAFAAUAAAABAAIAAAAHAAUAAAABAAEAAAAIAAUAAAABAAIAAAAJAAUAAAABAAIAAAABAAQAAAABAAEAAAACAAQAAAABAAEAAAAEAAQAAAABAAEAAAAFAAQAAAABAAEAAAAFAAMAAAABAAAAAAAGAAMAAAABAAAAAAAGAAQAAAABAAEAAAAHAAQAAAABAAEAAAAHAAMAAAABAAAAAAAIAAMAAAABAAAAAAAIAAQAAAABAAEAAAAJAAQAAAABAAEAAAAJAAMAAAABAAAAAAADAAQAAAABAAEAAAAGAAYAAAAAAAEAAAAGAAcAAAAAAAEAAAAGAAgAAAAAAAEAAAAGAAkAAAAAAAIAAAAHAAYAAAABAAEAAAAIAAYAAAACAAEAAAAIAAcAAAACAAEAAAAHAAcAAAABAAEAAAAHAAgAAAABAAEAAAAIAAgAAAACAAEAAAAIAAkAAAACAAIAAAAHAAkAAAABAAIAAAAGAAUAAAABAAIAAAABAAMAAAABAAAAAAACAAMAAAABAAAAAAADAAMAAAABAAAAAAAEAAMAAAABAAAAAAAKAAUAAAABAAIAAAALAAUAAAABAAIAAAAMAAUAAAABAAIAAAANAAUAAAABAAIAAAAOAAUAAAACAAIAAAAOAAQAAAACAAEAAAAOAAMAAAACAAAAAAALAAMAAAABAAAAAAAMAAMAAAABAAAAAAANAAMAAAABAAAAAAALAAQAAAABAAEAAAAMAAQAAAABAAEAAAANAAQAAAABAAEAAAA=")
 tile_set = ExtResource("1_nlyuk")
 
-[node name="Lever1" type="Area2D" parent="." unique_id=1459807820 groups=["Interactables"]]
-position = Vector2(972, 883)
-scale = Vector2(0.18, 0.18)
-collision_layer = 4
-collision_mask = 0
-script = ExtResource("14_jvf0n")
-metadata/_edit_group_ = true
+[node name="Door" parent="." unique_id=1567630657 instance=ExtResource("5_yujy2")]
+position = Vector2(1664.0001, 784)
+scale = Vector2(0.6, 0.6)
 
-[node name="Sprite" type="AnimatedSprite2D" parent="Lever1" unique_id=459419119]
-sprite_frames = SubResource("SpriteFrames_lfvtt")
-animation = &"Off"
+[node name="Pressure Plate" parent="." unique_id=261105857 node_paths=PackedStringArray("Target") instance=ExtResource("6_qjlir")]
+position = Vector2(1270, 1589)
+Target = NodePath("../Door")
 
-[node name="Boundary" type="CollisionShape2D" parent="Lever1" unique_id=2013948103]
-position = Vector2(-0.00048828125, 0.00048828125)
-scale = Vector2(1.0000001, 1.0000001)
-shape = SubResource("RectangleShape2D_lfvtt")
+[node name="Portal" parent="." unique_id=159542547 instance=ExtResource("7_apecv")]
+position = Vector2(2270, 832)
 
-[node name="Pressure Plate 1" type="StaticBody2D" parent="." unique_id=1351950745]
-position = Vector2(729, 898)
-scale = Vector2(0.4, 0.4)
-collision_mask = 0
-script = ExtResource("6_rtqpg")
-metadata/_edit_group_ = true
+[node name="Player" parent="." unique_id=211399840 instance=ExtResource("7_5vj71")]
+position = Vector2(200, 800)
+RedSpeed = 250.0
+RedJumpForce = 1000.0
+RedGravity = 4000.0
+YellowSpeed = 500.0
+YellowJumpForce = 1200.0
+YellowGravity = 1500.0
+RegularSpeed = 380.0
+RegularJumpForce = 750.0
+RegularGravity = 2400.0
 
-[node name="Sprite" type="AnimatedSprite2D" parent="Pressure Plate 1" unique_id=643462454]
-sprite_frames = SubResource("SpriteFrames_0w17o")
-animation = &"Off"
-
-[node name="ColliderOff" type="CollisionPolygon2D" parent="Pressure Plate 1" unique_id=1591213482]
-visible = false
-scale = Vector2(0.9999998, 0.9999998)
-polygon = PackedVector2Array(-255.00012, 87.5, -255.00012, -2.5, -192.5, -2.5, -192.5, -47.5, -160, -47.5, -147.5, -70, -130, -87.5, 120, -87.5, 140, -67.5, 147.5, -47.5, 182.5, -47.5, 182.5, -5, 255.00012, -5, 255.00012, 87.5)
-
-[node name="ColliderOn" type="CollisionPolygon2D" parent="Pressure Plate 1" unique_id=114317064]
-visible = false
-position = Vector2(0, 45)
-scale = Vector2(0.9999995, 0.9999995)
-polygon = PackedVector2Array(-135.00012, -55.000244, -120.00012, -75.000244, 122.5, -75.000244, 135, -52.500244, 185, -52.500244, 185, -47.5, 257.5, -47.5, 257.5, 42.5, -255.00012, 42.5, -255.00012, -47.5, -190.00012, -47.5, -190.00012, -55.000244)
-
-[node name="DetectionZone" type="Area2D" parent="Pressure Plate 1" unique_id=1808307403]
-collision_layer = 0
-collision_mask = 2
-monitorable = false
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pressure Plate 1/DetectionZone" unique_id=244258400]
-visible = false
-polygon = PackedVector2Array(-177.5, -50, -157.5, -50, -125, -92.5, 109.99988, -92.5, 147.49988, -52.5, 177.49988, -52.5, 177.49988, -37.5, -177.5, -37.5)
-
-[node name="Player" type="CharacterBody2D" parent="." unique_id=1827709253]
-position = Vector2(270, 752.99994)
-scale = Vector2(0.7, 0.7)
-collision_layer = 2
-script = ExtResource("2_6ibbu")
-metadata/_edit_group_ = true
-
-[node name="Sprite" type="AnimatedSprite2D" parent="Player" unique_id=1844377856]
-sprite_frames = SubResource("SpriteFrames_gbhba")
-animation = &"Idle"
-
-[node name="Collider" type="CollisionPolygon2D" parent="Player" unique_id=744978424]
-polygon = PackedVector2Array(-70, -34, -20, -85, 20, -85, 70, -34, 70, -5, 80, -5, 80, 44, 53, 57, 53, 85, 14, 85, 14, 65, -10, 65, -10, 85, -50, 85, -50, 56, -80, 56, -80, -5, -70, -5)
-
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1627643216]
-limit_enabled = false
-position_smoothing_enabled = true
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
-drag_left_margin = 0.5
-
-[node name="InteractableScanner" type="Area2D" parent="Player" unique_id=643479933 node_paths=PackedStringArray("InteractLabel")]
-collision_layer = 0
-collision_mask = 4
-script = ExtResource("14_ddkr8")
+[node name="InteractableScanner" parent="Player" index="3" unique_id=388421812 node_paths=PackedStringArray("InteractLabel")]
 InteractLabel = NodePath("../../CanvasLayer/InteractLabel")
-
-[node name="Radius" type="CollisionShape2D" parent="Player/InteractableScanner" unique_id=523358667]
-shape = SubResource("CircleShape2D_gbhba")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=148706860]
 
@@ -227,3 +74,5 @@ grow_horizontal = 0
 grow_vertical = 0
 text = "No interactables in range"
 vertical_alignment = 2
+
+[editable path="Player"]
