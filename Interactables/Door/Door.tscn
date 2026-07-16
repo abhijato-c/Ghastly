@@ -31,6 +31,7 @@ size = Vector2(448, 88)
 
 [node name="Door" type="StaticBody2D" unique_id=1567630657 groups=["Interactables"]]
 scale = Vector2(0.4, 0.4)
+collision_mask = 0
 script = ExtResource("1_qxvn3")
 metadata/_edit_group_ = true
 

@@ -30,17 +30,16 @@ var TutorialIndex: int = 0
 var MenuLabels: Array[Node] = []
 var LevelLabels: Array[Node] = []
 var UnlockedLevel: int = 0
-const SavePath: String = "user://Save.json"
 
 func _ready() -> void:
-	if not FileAccess.file_exists(SavePath):
-		var file: FileAccess = FileAccess.open(SavePath, FileAccess.WRITE)
+	if not FileAccess.file_exists(Globals.ConfigPath):
+		var file: FileAccess = FileAccess.open(Globals.ConfigPath, FileAccess.WRITE)
 		var json: Dictionary = {"UnlockedLevel": 0}
 		file.store_string(JSON.stringify(json))
 		file.close()
 		UnlockedLevel = 0
 	else:
-		var file: FileAccess = FileAccess.open(SavePath, FileAccess.READ)
+		var file: FileAccess = FileAccess.open(Globals.ConfigPath, FileAccess.READ)
 		var json = JSON.new()
 		var _res = json.parse(file.get_as_text())
 		var data: Dictionary = json.get_data() as Dictionary
@@ -96,7 +95,7 @@ func LevelAction(event: InputEvent) -> void:
 	elif  event.is_action_pressed("ui_right"):
 		LevelIndex += 1
 	elif event.is_action_pressed("ui_accept") and LevelIndex <= UnlockedLevel:
-		get_tree().change_scene_to_file("res://Levels/Level-{n}/Level-{n}.tscn".format({"n": LevelIndex + 1}))
+		get_tree().change_scene_to_file("res://Levels/Level-{n}.tscn".format({"n": LevelIndex + 1}))
 		return
 	
 	if LevelIndex < 0 or LevelIndex > 9 or LevelIndex > UnlockedLevel:

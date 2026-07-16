@@ -4,6 +4,7 @@ const FrameRate: int = 30
 const TimeLimit: int = 15
 const NumFrames: int = FrameRate * TimeLimit
 const FrameTime: float = 1.0 / FrameRate
+const ConfigPath: String = "user://Save.json"
 
 enum PlayerColor {
 	Red,

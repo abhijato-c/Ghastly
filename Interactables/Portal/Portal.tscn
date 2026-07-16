@@ -3,15 +3,31 @@
 [ext_resource type="Script" uid="uid://dr7stuiqwnjca" path="res://Interactables/Portal/Portal.gd" id="1_amhaf"]
 [ext_resource type="Texture2D" uid="uid://v6g3y63us1ee" path="res://Interactables/Portal/Portal.png" id="2_q3xlm"]
 
-[node name="Portal" type="Area2D" unique_id=159542547]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gbhba"]
+size = Vector2(673.3333, 56.66665)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lfvtt"]
+size = Vector2(240, 486.6667)
+
+[node name="Portal" type="StaticBody2D" unique_id=513684778]
 scale = Vector2(0.3, 0.3)
+collision_mask = 0
 script = ExtResource("1_amhaf")
-Level = 2
 metadata/_edit_group_ = true
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=812775029]
 scale = Vector2(0.99999994, 0.99999994)
 texture = ExtResource("2_q3xlm")
 
-[node name="Collider" type="CollisionPolygon2D" parent="." unique_id=359375673]
-polygon = PackedVector2Array(-116.666664, 280, 110, 280, 110, -126.666664, 0, -206.66666, -113.33333, -130)
+[node name="ColliderBase" type="CollisionShape2D" parent="." unique_id=983872724]
+position = Vector2(1.5894572e-06, 308.3333)
+shape = SubResource("RectangleShape2D_gbhba")
+
+[node name="TeleportZone" type="Area2D" parent="." unique_id=2050292097]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="ColliderTeleport" type="CollisionShape2D" parent="TeleportZone" unique_id=2141873160]
+position = Vector2(-3.3333333, 36.66668)
+shape = SubResource("RectangleShape2D_lfvtt")

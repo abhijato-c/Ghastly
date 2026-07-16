@@ -1,23 +1,30 @@
 extends CharacterBody2D
 
-@export var Friction: float
 @onready var Sprite: AnimatedSprite2D = $Sprite
 signal Died(PositionHistory: Array, InteractHistory: Array)
 
+@export_group("Timer")
+@export var TimeBar: ProgressBar
+@export var CurrPlayer: TextureRect
+@export var PrevPlayer: TextureRect
+@export var NextPlayer: TextureRect
+@export var ElapsedLabel: Label
+@export var RemainingLabel: Label
+
 @export_group("RedPhysics")
-@export var RedSpeed: float
-@export var RedJumpForce: float
-@export var RedGravity: float
+@export var RedSpeed: float = 250
+@export var RedJumpForce: float = 1000
+@export var RedGravity: float = 4000
 
 @export_group("YellowPhysics")
-@export var YellowSpeed: float
-@export var YellowJumpForce: float
-@export var YellowGravity: float
+@export var YellowSpeed: float = 500
+@export var YellowJumpForce: float = 1200
+@export var YellowGravity: float = 1500
 
 @export_group("RegularPhysics")
-@export var RegularSpeed: float
-@export var RegularJumpForce: float
-@export var RegularGravity: float
+@export var RegularSpeed: float = 380
+@export var RegularJumpForce: float = 750
+@export var RegularGravity: float = 2400
 
 var Speed: float
 var JumpForce: float
@@ -48,10 +55,6 @@ func _physics_process(delta: float) -> void:
 	
 	velocity.x = Speed * Direction
 	Sprite.flip_h = (Direction == -1)
-	if velocity.x > 0:
-		velocity.x = max(0, velocity.x - Friction)
-	elif velocity.x < 0:
-		velocity.x = min(0, velocity.x + Friction)
 	
 	move_and_slide()
 	
@@ -64,16 +67,20 @@ func _physics_process(delta: float) -> void:
 	TimeAccumulator += delta
 	
 	while TimeAccumulator >= Globals.FrameTime:
-		UpdateHistory()
+		TimeTick()
 		TimeAccumulator -= Globals.FrameTime
 	
 	if TimeElapsed >= Globals.TimeLimit:
 		Die()
 
-func UpdateHistory() -> void:
+func TimeTick() -> void:
 	PositionHistory.append(global_position)
 	InteractHistory.append(Interaction)
 	Interaction = Callable()
+	
+	TimeBar.value = TimeElapsed / Globals.TimeLimit
+	ElapsedLabel.text = "%.1f" % TimeElapsed + '/' + str(Globals.TimeLimit) + ' s'
+	RemainingLabel.text = 'T-' + "%.1f" % (Globals.TimeLimit - TimeElapsed) + 's'
 
 static func InteractionHappened(InteractFunc: Callable) -> void:
 	Interaction = InteractFunc
@@ -113,5 +120,12 @@ func Respawn(Col: Globals.PlayerColor) -> void:
 		Speed = RegularSpeed
 		JumpForce = RegularJumpForce
 		Gravity = RegularGravity
+	
+	var PrevCol = (Globals.PlayerColor.values().size() - 1) if Col == 0 else (Col - 1)  as Globals.PlayerColor
+	var NextCol = (Col + 1) % Globals.PlayerColor.values().size() as Globals.PlayerColor
+	CurrPlayer.modulate = Globals.VisualColor[Col]
+	PrevPlayer.modulate = Globals.VisualColor[PrevCol]
+	NextPlayer.modulate = Globals.VisualColor[NextCol]
+	TimeBar.get_theme_stylebox("fill").bg_color = Globals.VisualColor[Col]
 	
 	set_physics_process(true)

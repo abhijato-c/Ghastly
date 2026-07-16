@@ -1,0 +1,78 @@
+[gd_scene format=4 uid="uid://5qgk0u61crv7"]
+
+[ext_resource type="Script" uid="uid://dtxsv08e1x1ql" path="res://Levels/LevelController.gd" id="1_3yodv"]
+[ext_resource type="PackedScene" uid="uid://cquxki84ra1sp" path="res://Levels/Prefabs/Background.tscn" id="1_5l72n"]
+[ext_resource type="PackedScene" uid="uid://dsunmst42ixvw" path="res://Ghost/Ghost.tscn" id="2_q8c7p"]
+[ext_resource type="TileSet" uid="uid://dyp81n1sjrjes" path="res://Tilemaps/TileSet.tres" id="2_s2eds"]
+[ext_resource type="PackedScene" uid="uid://umaxlr8x3fat" path="res://Levels/Prefabs/Canvas.tscn" id="3_d4uhx"]
+[ext_resource type="PackedScene" uid="uid://deudmk0pcpt0a" path="res://Player/Player.tscn" id="3_s2eds"]
+[ext_resource type="PackedScene" uid="uid://jxyn38vcuqje" path="res://Interactables/Pressure Plate/PressurePlate.tscn" id="5_0xqr6"]
+[ext_resource type="PackedScene" uid="uid://li8681a1ikco" path="res://Interactables/Door/Door.tscn" id="6_jl0uj"]
+[ext_resource type="PackedScene" uid="uid://dq4ydqmguv0tw" path="res://Interactables/Lever/Lever.tscn" id="7_cs5k1"]
+[ext_resource type="PackedScene" uid="uid://c2q621xffqeeb" path="res://Interactables/Portal/Portal.tscn" id="8_ja76o"]
+
+[node name="Level2" type="Node2D" unique_id=1218777582 node_paths=PackedStringArray("Player")]
+script = ExtResource("1_3yodv")
+Player = NodePath("Player")
+GhostPrefab = ExtResource("2_q8c7p")
+
+[node name="Background" parent="." unique_id=1731978134 instance=ExtResource("1_5l72n")]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1972256650]
+tile_map_data = PackedByteArray("AAAAAAUAAAABAAIAAAABAAUAAAABAAIAAAACAAUAAAABAAIAAAADAAUAAAABAAIAAAAEAAUAAAABAAIAAAAFAAUAAAABAAIAAAAGAAUAAAABAAIAAAAHAAUAAAABAAIAAAAIAAUAAAABAAIAAAAJAAUAAAABAAIAAAAKAAUAAAABAAIAAAAAAAQAAAABAAEAAAAAAAMAAAAAAAEAAAAAAAIAAAAAAAEAAAAAAAEAAAAAAAAAAAABAAEAAAABAAAAAAACAAEAAAABAAAAAAADAAEAAAACAAAAAAAEAAEAAAABAAAAAAAFAAEAAAABAAAAAAAGAAEAAAACAAAAAAAHAAEAAAABAAAAAAAIAAEAAAABAAAAAAAJAAEAAAACAAAAAAALAAUAAAACAAIAAAALAAQAAAACAAEAAAALAAMAAAACAAEAAAALAAIAAAACAAEAAAALAAEAAAACAAAAAAAKAAEAAAABAAAAAAABAAQAAAABAAEAAAABAAMAAAABAAEAAAABAAIAAAABAAEAAAACAAIAAAABAAEAAAADAAIAAAACAAEAAAADAAMAAAACAAEAAAACAAMAAAABAAEAAAACAAQAAAABAAEAAAADAAQAAAABAAEAAAAEAAQAAAABAAEAAAAFAAQAAAABAAEAAAAGAAQAAAABAAEAAAAHAAQAAAABAAEAAAAIAAQAAAABAAEAAAAJAAQAAAABAAEAAAAKAAQAAAABAAEAAAAKAAMAAAABAAEAAAAKAAIAAAABAAEAAAAJAAIAAAACAAEAAAAIAAIAAAABAAEAAAAHAAIAAAABAAEAAAAGAAIAAAACAAEAAAAFAAIAAAABAAEAAAAEAAIAAAABAAEAAAAEAAMAAAABAAEAAAAFAAMAAAABAAEAAAAGAAMAAAACAAEAAAAHAAMAAAABAAEAAAAIAAMAAAABAAEAAAAJAAMAAAACAAEAAAD//wUAAAABAAIAAAD+/wUAAAABAAIAAAD9/wUAAAAAAAIAAAD9/wQAAAAAAAEAAAD9/wMAAAAAAAEAAAD9/wIAAAAAAAEAAAD9/wEAAAAAAAAAAAD+/wEAAAABAAAAAAD//wEAAAABAAAAAAD//wQAAAABAAEAAAD+/wQAAAABAAEAAAD+/wMAAAABAAEAAAD+/wIAAAABAAEAAAD//wIAAAABAAEAAAD//wMAAAABAAEAAAA=")
+tile_set = ExtResource("2_s2eds")
+
+[node name="Pressure Plate 1" parent="." unique_id=261105857 node_paths=PackedStringArray("Target") groups=["Interactables"] instance=ExtResource("5_0xqr6")]
+position = Vector2(321, 908)
+Target = NodePath("../Door 1")
+
+[node name="Door 1" parent="." unique_id=1567630657 instance=ExtResource("6_jl0uj")]
+position = Vector2(646, 806)
+scale = Vector2(0.5, 0.5)
+
+[node name="Pressure Plate 2" parent="." unique_id=748729069 node_paths=PackedStringArray("Target") groups=["Interactables"] instance=ExtResource("5_0xqr6")]
+position = Vector2(914, 906)
+Target = NodePath("../Door 2")
+
+[node name="Door 2" parent="." unique_id=408937626 instance=ExtResource("6_jl0uj")]
+position = Vector2(1156, 805)
+scale = Vector2(0.5, 0.5)
+
+[node name="Pressure Plate 3" parent="." unique_id=1198667585 node_paths=PackedStringArray("Target") groups=["Interactables"] instance=ExtResource("5_0xqr6")]
+position = Vector2(1425, 908)
+Target = NodePath("../Door 3")
+
+[node name="Door 3" parent="." unique_id=942986381 instance=ExtResource("6_jl0uj")]
+position = Vector2(1663, 806)
+scale = Vector2(0.5, 0.5)
+
+[node name="Lever" parent="." unique_id=681793076 node_paths=PackedStringArray("Target") instance=ExtResource("7_cs5k1")]
+position = Vector2(1906, 803)
+rotation = -1.5707964
+Target = NodePath("../Door 4")
+
+[node name="Door 4" parent="." unique_id=911735658 instance=ExtResource("6_jl0uj")]
+position = Vector2(55, 807)
+scale = Vector2(0.5, 0.5)
+
+[node name="Portal" parent="." unique_id=513684778 instance=ExtResource("8_ja76o")]
+position = Vector2(-259, 831.00006)
+LevelPath = "uid://p0d65g3dedlt"
+LevelNum = 2
+
+[node name="Player" parent="." unique_id=211399840 node_paths=PackedStringArray("TimeBar", "CurrPlayer", "PrevPlayer", "NextPlayer", "ElapsedLabel", "RemainingLabel") instance=ExtResource("3_s2eds")]
+position = Vector2(307.99997, 723.99994)
+TimeBar = NodePath("../CanvasLayer/TimerFrame/Timer")
+CurrPlayer = NodePath("../CanvasLayer/TimerFrame/CurrentPlayer")
+PrevPlayer = NodePath("../CanvasLayer/TimerFrame/PreviousPlayer")
+NextPlayer = NodePath("../CanvasLayer/TimerFrame/NextPlayer")
+ElapsedLabel = NodePath("../CanvasLayer/TimerFrame/TimeElapsedText")
+RemainingLabel = NodePath("../CanvasLayer/TimerFrame/TimeLeftText")
+
+[node name="InteractableScanner" parent="Player" index="3" unique_id=388421812 node_paths=PackedStringArray("InteractLabel")]
+InteractLabel = NodePath("../../CanvasLayer/InteractLabel")
+
+[node name="CanvasLayer" parent="." unique_id=109010406 instance=ExtResource("3_d4uhx")]
+
+[editable path="Player"]
+[editable path="CanvasLayer"]

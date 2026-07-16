@@ -1,0 +1,134 @@
+[gd_scene format=3 uid="uid://umaxlr8x3fat"]
+
+[ext_resource type="Texture2D" uid="uid://bij5rxt0oja83" path="res://Player/Sprites/Idle/Player.png" id="1_vipcc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0w17o"]
+bg_color = Color(0, 0, 0, 0.5882353)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lfvtt"]
+bg_color = Color(1, 1, 1, 0.19607843)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.5882353, 0.5882353, 0.5882353, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gbhba"]
+bg_color = Color(1, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 0)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=109010406]
+
+[node name="InteractLabel" type="Label" parent="." unique_id=1419629885]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -196.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 20
+text = "No interactables in range"
+vertical_alignment = 2
+
+[node name="TimerFrame" type="Panel" parent="." unique_id=890621128]
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.88
+anchor_right = 0.75
+anchor_bottom = 0.98
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_0w17o")
+
+[node name="Timer" type="ProgressBar" parent="TimerFrame" unique_id=177327392]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.5
+anchor_right = 0.9
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_lfvtt")
+theme_override_styles/fill = SubResource("StyleBoxFlat_gbhba")
+max_value = 1.0
+step = 0.0
+value = 0.15
+show_percentage = false
+
+[node name="TimeElapsedText" type="Label" parent="TimerFrame" unique_id=720849341]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.9
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.9
+grow_horizontal = 0
+grow_vertical = 2
+text = "66/66s"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimeLeftText" type="Label" parent="TimerFrame" unique_id=1615216616]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 0.1
+anchor_bottom = 0.9
+grow_vertical = 0
+text = "T-15s"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CurrentPlayer" type="TextureRect" parent="TimerFrame" unique_id=123419487]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_top = 0.05
+anchor_right = 0.6
+anchor_bottom = 0.45
+grow_vertical = 2
+texture = ExtResource("1_vipcc")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="NextPlayer" type="TextureRect" parent="TimerFrame" unique_id=1346299981]
+self_modulate = Color(1, 1, 1, 0.39215687)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.75
+anchor_top = 0.15
+anchor_right = 0.9
+anchor_bottom = 0.45
+grow_vertical = 2
+texture = ExtResource("1_vipcc")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="PreviousPlayer" type="TextureRect" parent="TimerFrame" unique_id=222241568]
+self_modulate = Color(1, 1, 1, 0.39215687)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.15
+anchor_right = 0.2
+anchor_bottom = 0.45
+grow_vertical = 2
+texture = ExtResource("1_vipcc")
+expand_mode = 1
+stretch_mode = 5

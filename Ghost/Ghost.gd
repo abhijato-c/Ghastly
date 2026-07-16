@@ -11,14 +11,16 @@ func _ready() -> void:
 	Disable()
 
 func Disable() -> void:
-	hide()
 	set_physics_process(false)
+	set_deferred("monitorable", false)
+	hide()
 
 func Enable() -> void:
 	CurrentFrame = 0
 	Accumulator = 0
-	show()
+	set_deferred("monitorable", true)
 	set_physics_process(true)
+	show()
 
 func UpdateHistory(PosHistory: Array[Vector2], InteractHistory: Array[Callable]) -> void:
 	PositionHistory = PosHistory

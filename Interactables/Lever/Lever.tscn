@@ -30,6 +30,7 @@ size = Vector2(522.22266, 511.11176)
 scale = Vector2(0.15, 0.15)
 collision_layer = 4
 collision_mask = 0
+monitoring = false
 script = ExtResource("1_pgtr7")
 metadata/_edit_group_ = true
 
