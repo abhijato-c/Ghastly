@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://c102all4mh6x4"]
+
+[ext_resource type="Script" uid="uid://kbto3gd1og8v" path="res://Interactables/Jump Pad/Jump.gd" id="1_8phgx"]
+[ext_resource type="Texture2D" uid="uid://db4g1jv4j63la" path="res://Interactables/Jump Pad/Off.png" id="2_mhm77"]
+[ext_resource type="Texture2D" uid="uid://7snimqewld4g" path="res://Interactables/Jump Pad/On.png" id="3_vjsw0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gbhba"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_mhm77")
+}],
+"loop": 1,
+"name": &"Off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_vjsw0")
+}],
+"loop": 1,
+"name": &"On",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lfvtt"]
+size = Vector2(242.5, 12.5)
+
+[node name="Jump Pad" type="StaticBody2D" unique_id=1164891018 groups=["Interactables"]]
+scale = Vector2(0.4, 0.4)
+collision_mask = 0
+script = ExtResource("1_8phgx")
+Force = 1500.0
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1799298368]
+sprite_frames = SubResource("SpriteFrames_gbhba")
+animation = &"Off"
+
+[node name="ColliderBase" type="CollisionPolygon2D" parent="." unique_id=485455909]
+visible = false
+position = Vector2(-88.75, 120)
+scale = Vector2(0.99999994, 0.99999994)
+polygon = PackedVector2Array(-101.25003, 135.00006, 278.75, 135.00006, 278.75, 85.00006, 253.75, 85.00006, 253.75, 22.5, 236.25, 22.5, 236.25, -17.5, 253.75, -17.5, 253.75, -70, -78.75003, -70, -78.75003, -20, -56.25, -20, -56.25, 22.5, -76.25003, 22.5, -76.25003, 82.50006, -101.25003, 82.50006)
+
+[node name="DetectionZone" type="Area2D" parent="." unique_id=2009556475]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="Collider" type="CollisionShape2D" parent="DetectionZone" unique_id=1682310502]
+position = Vector2(3.75, 33.75)
+scale = Vector2(0.99999964, 0.99999964)
+shape = SubResource("RectangleShape2D_lfvtt")

@@ -32,16 +32,14 @@ corner_radius_bottom_left = 10
 [node name="CanvasLayer" type="CanvasLayer" unique_id=109010406]
 
 [node name="InteractLabel" type="Label" parent="." unique_id=1419629885]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -196.0
-offset_top = -23.0
+anchors_preset = -1
+anchor_left = 0.9
+anchor_top = 0.95
+anchor_right = 0.99
+anchor_bottom = 0.98
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 23
 text = "No interactables in range"
 vertical_alignment = 2
 

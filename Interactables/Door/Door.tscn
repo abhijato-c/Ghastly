@@ -24,7 +24,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qjlir"]
-size = Vector2(78, 428)
+size = Vector2(110.00001, 428)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gbhba"]
 size = Vector2(448, 88)
@@ -40,8 +40,8 @@ sprite_frames = SubResource("SpriteFrames_jca7n")
 animation = &"Closed"
 
 [node name="Collider" type="CollisionShape2D" parent="." unique_id=176279007]
-visible = false
-position = Vector2(-19, -42)
+position = Vector2(-27.499994, -42)
+scale = Vector2(0.9999998, 0.9999998)
 shape = SubResource("RectangleShape2D_qjlir")
 
 [node name="ColliderBase" type="CollisionShape2D" parent="." unique_id=1399535954]

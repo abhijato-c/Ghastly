@@ -28,7 +28,7 @@ size = Vector2(522.22266, 511.11176)
 
 [node name="Lever" type="Area2D" unique_id=681793076 groups=["Interactables"]]
 scale = Vector2(0.15, 0.15)
-collision_layer = 4
+collision_layer = 8
 collision_mask = 0
 monitoring = false
 script = ExtResource("1_pgtr7")

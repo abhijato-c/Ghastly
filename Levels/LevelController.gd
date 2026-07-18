@@ -15,7 +15,9 @@ func _ready() -> void:
 	for i in range(Globals.PlayerColor.values().size()):
 		var Col = i as Globals.PlayerColor
 		var Ghost = GhostPrefab.instantiate()
-		Ghost.modulate = Globals.VisualColor[Col]
+		var VisCol: Color = Globals.VisualColor[Col]
+		VisCol.a = 0.5
+		Ghost.modulate = VisCol
 		add_child(Ghost)
 		Ghosts[Col] = Ghost
 

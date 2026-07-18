@@ -57,11 +57,11 @@ scale = Vector2(0.5, 0.5)
 
 [node name="Portal" parent="." unique_id=513684778 instance=ExtResource("8_ja76o")]
 position = Vector2(-259, 831.00006)
-LevelPath = "uid://p0d65g3dedlt"
+LevelPath = "uid://tri1i0vk5wo6"
 LevelNum = 2
 
 [node name="Player" parent="." unique_id=211399840 node_paths=PackedStringArray("TimeBar", "CurrPlayer", "PrevPlayer", "NextPlayer", "ElapsedLabel", "RemainingLabel") instance=ExtResource("3_s2eds")]
-position = Vector2(307.99997, 723.99994)
+position = Vector2(200, 800)
 TimeBar = NodePath("../CanvasLayer/TimerFrame/Timer")
 CurrPlayer = NodePath("../CanvasLayer/TimerFrame/CurrentPlayer")
 PrevPlayer = NodePath("../CanvasLayer/TimerFrame/PreviousPlayer")

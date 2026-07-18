@@ -23,7 +23,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Pressure Plate" type="StaticBody2D" unique_id=261105857]
+[node name="Pressure Plate" type="StaticBody2D" unique_id=261105857 groups=["Interactables"]]
 scale = Vector2(0.3, 0.3)
 collision_mask = 0
 script = ExtResource("1_jrxkl")
@@ -46,9 +46,9 @@ polygon = PackedVector2Array(-135.00012, -55.000244, -120.00012, -75.000244, 122
 
 [node name="DetectionZone" type="Area2D" parent="." unique_id=1330272955]
 collision_layer = 0
-collision_mask = 2
+collision_mask = 6
 monitorable = false
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DetectionZone" unique_id=1640358618]
+[node name="Collider" type="CollisionPolygon2D" parent="DetectionZone" unique_id=1640358618]
 visible = false
 polygon = PackedVector2Array(-177.5, -50, -157.5, -50, -125, -92.5, 109.99988, -92.5, 147.49988, -52.5, 177.49988, -52.5, 177.49988, -37.5, -177.5, -37.5)

@@ -5,13 +5,15 @@
 
 [node name="Ghost" type="Area2D" unique_id=537655436]
 scale = Vector2(0.7, 0.7)
-collision_layer = 2
+collision_layer = 4
 collision_mask = 0
 monitoring = false
 script = ExtResource("1_43f78")
 metadata/_edit_group_ = true
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1681671716]
+position = Vector2(0, 25)
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_agfr7")
 
 [node name="Collider" type="CollisionPolygon2D" parent="." unique_id=655438407]

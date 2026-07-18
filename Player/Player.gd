@@ -1,7 +1,13 @@
 extends CharacterBody2D
 
 @onready var Sprite: AnimatedSprite2D = $Sprite
+@onready var WallLeft: RayCast2D = $WallLeft
+@onready var WallRight: RayCast2D = $WallRight
 signal Died(PositionHistory: Array, InteractHistory: Array)
+
+@export_group("GlobalPhysics")
+@export var WallSlideSpeed: float = 60
+@export var JumpForce: float = 750
 
 @export_group("Timer")
 @export var TimeBar: ProgressBar
@@ -11,23 +17,20 @@ signal Died(PositionHistory: Array, InteractHistory: Array)
 @export var ElapsedLabel: Label
 @export var RemainingLabel: Label
 
+
 @export_group("RedPhysics")
 @export var RedSpeed: float = 250
-@export var RedJumpForce: float = 1000
 @export var RedGravity: float = 4000
 
 @export_group("YellowPhysics")
 @export var YellowSpeed: float = 500
-@export var YellowJumpForce: float = 1200
 @export var YellowGravity: float = 1500
 
 @export_group("RegularPhysics")
 @export var RegularSpeed: float = 380
-@export var RegularJumpForce: float = 750
 @export var RegularGravity: float = 2400
 
 var Speed: float
-var JumpForce: float
 var Gravity: float
 
 var Direction: int = 0
@@ -37,13 +40,17 @@ var TimeAccumulator: float = 0.0
 static var Interaction: Callable = Callable()
 var InteractHistory: Array[Callable] = []
 var PositionHistory: Array[Vector2] = []
+var CurrentColor: Globals.PlayerColor = Globals.PlayerColor.Red
 
 func _ready() -> void:
 	set_physics_process(false)
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
-		velocity.y += Gravity * delta
+		if CurrentColor == Globals.PlayerColor.Green and velocity.y > 0 and (WallLeft.is_colliding() or WallRight.is_colliding()):
+			velocity.y = WallSlideSpeed
+		else:
+			velocity.y += Gravity * delta
 	elif Input.is_action_pressed("Jump"):
 		velocity.y = -JumpForce
 	
@@ -52,6 +59,18 @@ func _physics_process(delta: float) -> void:
 		Direction -= 1
 	if Input.is_action_pressed("MoveRight"):
 		Direction += 1
+	
+	if Input.is_action_just_pressed("NextPlayer"):
+		if PositionHistory.size() == 0:
+			PositionHistory.append(global_position)
+		if InteractHistory.size() == 0:
+			InteractHistory.append(Callable())
+		Die()
+		return
+	
+	if Input.is_action_just_pressed("Reset"):
+		get_tree().reload_current_scene()
+	
 	
 	velocity.x = Speed * Direction
 	Sprite.flip_h = (Direction == -1)
@@ -107,18 +126,16 @@ func Respawn(Col: Globals.PlayerColor) -> void:
 	TimeAccumulator = 0.0
 	PositionHistory = []
 	InteractHistory = []
+	CurrentColor = Col
 	
 	if Col == Globals.PlayerColor.Red:
 		Speed = RedSpeed
-		JumpForce = RedJumpForce
 		Gravity = RedGravity
 	elif Col == Globals.PlayerColor.Yellow:
 		Speed = YellowSpeed
-		JumpForce = YellowJumpForce
 		Gravity = YellowGravity
 	else:
 		Speed = RegularSpeed
-		JumpForce = RegularJumpForce
 		Gravity = RegularGravity
 	
 	var PrevCol = (Globals.PlayerColor.values().size() - 1) if Col == 0 else (Col - 1)  as Globals.PlayerColor

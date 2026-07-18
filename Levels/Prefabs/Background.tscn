@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cquxki84ra1sp"]
 
-[ext_resource type="Texture2D" uid="uid://dwci3u7tlli57" path="res://Background.png" id="1_cs4nb"]
+[ext_resource type="Texture2D" uid="uid://dwci3u7tlli57" path="res://Levels/Background.png" id="1_cs4nb"]
 
 [node name="Background" type="Parallax2D" unique_id=1731978134]
 scroll_scale = Vector2(0.2, 0.2)

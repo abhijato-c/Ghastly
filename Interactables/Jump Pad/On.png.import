@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwci3u7tlli57"
-path="res://.godot/imported/Background.png-d346e9ce37c7294bb8a0c89de5d380cd.ctex"
+uid="uid://7snimqewld4g"
+path="res://.godot/imported/On.png-65d102528ff407d53ba88a0098d355bc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Background.png"
-dest_files=["res://.godot/imported/Background.png-d346e9ce37c7294bb8a0c89de5d380cd.ctex"]
+source_file="res://Interactables/Jump Pad/On.png"
+dest_files=["res://.godot/imported/On.png-65d102528ff407d53ba88a0098d355bc.ctex"]
 
 [params]
 

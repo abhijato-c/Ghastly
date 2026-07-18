@@ -1,0 +1,81 @@
+[gd_scene format=4 uid="uid://tri1i0vk5wo6"]
+
+[ext_resource type="Script" uid="uid://dtxsv08e1x1ql" path="res://Levels/LevelController.gd" id="1_qflc2"]
+[ext_resource type="PackedScene" uid="uid://dsunmst42ixvw" path="res://Ghost/Ghost.tscn" id="2_us2h7"]
+[ext_resource type="PackedScene" uid="uid://cquxki84ra1sp" path="res://Levels/Prefabs/Background.tscn" id="3_oo176"]
+[ext_resource type="PackedScene" uid="uid://deudmk0pcpt0a" path="res://Player/Player.tscn" id="4_rccjf"]
+[ext_resource type="TileSet" uid="uid://dyp81n1sjrjes" path="res://Tilemaps/TileSet.tres" id="4_rorxg"]
+[ext_resource type="PackedScene" uid="uid://dq4ydqmguv0tw" path="res://Interactables/Lever/Lever.tscn" id="5_m2orm"]
+[ext_resource type="PackedScene" uid="uid://umaxlr8x3fat" path="res://Levels/Prefabs/Canvas.tscn" id="5_rorxg"]
+[ext_resource type="PackedScene" uid="uid://li8681a1ikco" path="res://Interactables/Door/Door.tscn" id="6_wysjc"]
+[ext_resource type="PackedScene" uid="uid://c102all4mh6x4" path="res://Interactables/Jump Pad/JumpPad.tscn" id="7_wysjc"]
+[ext_resource type="PackedScene" uid="uid://becnf2vd6m656" path="res://Interactables/Piston/Piston.tscn" id="8_xdwv4"]
+[ext_resource type="PackedScene" uid="uid://c2q621xffqeeb" path="res://Interactables/Portal/Portal.tscn" id="9_wysjc"]
+[ext_resource type="PackedScene" uid="uid://jxyn38vcuqje" path="res://Interactables/Pressure Plate/PressurePlate.tscn" id="11_gi5mo"]
+
+[node name="Level3" type="Node2D" unique_id=449245985 node_paths=PackedStringArray("Player")]
+script = ExtResource("1_qflc2")
+Player = NodePath("Player")
+GhostPrefab = ExtResource("2_us2h7")
+SpawnPos = Vector2(0, 200)
+
+[node name="Background" parent="." unique_id=1731978134 instance=ExtResource("3_oo176")]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=220563495]
+tile_map_data = PackedByteArray("AAD+//7/AAAAAAEAAAD+////AAAAAAEAAAD+/wAAAAAAAAEAAAD+/wEAAAAAAAEAAAD+/wIAAAAAAAIAAAD//wIAAAABAAIAAAAAAAIAAAABAAIAAAABAAIAAAABAAIAAAACAAIAAAAAAAIAAAADAAIAAAABAAIAAAD+//3/AAAAAAAAAAD///3/AAABAAAAAAAAAP3/AAABAAAAAAABAP3/AAABAAAAAAACAP3/AAABAAAAAAADAP3/AAABAAAAAAAEAP3/AAABAAAAAAAEAAIAAAABAAIAAAD///7/AAABAAEAAAD/////AAABAAEAAAD//wAAAAABAAEAAAD//wEAAAABAAEAAAAAAAEAAAABAAEAAAAAAAAAAAABAAEAAAAAAP//AAABAAEAAAAAAP7/AAABAAEAAAABAP7/AAABAAEAAAABAP//AAABAAEAAAABAAAAAAABAAEAAAABAAEAAAABAAEAAAACAAEAAAAAAAEAAAACAAAAAAAAAAAAAAACAP//AAABAAEAAAACAP7/AAABAAEAAAADAP7/AAABAAEAAAADAP//AAABAAEAAAADAAAAAAABAAEAAAADAAEAAAABAAEAAAAEAAEAAAABAAEAAAAEAAAAAAABAAEAAAAEAP//AAABAAEAAAAEAP7/AAABAAEAAAAFAAIAAAABAAIAAAAGAAIAAAABAAIAAAAHAAIAAAABAAIAAAAIAAIAAAABAAIAAAAFAP3/AAACAAAAAAAGAP3/AAABAAAAAAAHAP3/AAABAAAAAAAIAP3/AAABAAAAAAAFAAEAAAABAAEAAAAGAAEAAAABAAEAAAAHAAEAAAABAAEAAAAIAAEAAAABAAEAAAAIAAAAAAABAAEAAAAHAAAAAAABAAEAAAAGAAAAAAABAAEAAAAFAAAAAAACAAEAAAAFAP//AAACAAEAAAAGAP//AAABAAEAAAAHAP//AAABAAEAAAAIAP//AAABAAEAAAAIAP7/AAABAAEAAAAHAP7/AAABAAEAAAAGAP7/AAABAAEAAAAFAP7/AAACAAEAAAAJAP3/AAACAAAAAAAJAP7/AAACAAEAAAAJAP//AAACAAEAAAAKAP//AAABAAAAAAALAP//AAABAAAAAAAJAAIAAAABAAIAAAAKAAIAAAABAAIAAAALAAIAAAABAAIAAAAMAAIAAAABAAIAAAANAAIAAAACAAIAAAANAAEAAAACAAEAAAANAAAAAAACAAEAAAANAP//AAACAAAAAAAMAP//AAABAAAAAAAJAAAAAAACAAEAAAAKAAAAAAABAAEAAAALAAAAAAABAAEAAAAMAAAAAAABAAEAAAAMAAEAAAABAAEAAAALAAEAAAABAAEAAAAKAAEAAAABAAEAAAAJAAEAAAABAAEAAAA=")
+tile_set = ExtResource("4_rorxg")
+
+[node name="Lever" parent="." unique_id=681793076 node_paths=PackedStringArray("Target") instance=ExtResource("5_m2orm")]
+position = Vector2(-215, 284)
+rotation = 1.5707964
+Target = NodePath("../Door 1")
+
+[node name="Door 1" parent="." unique_id=1567630657 instance=ExtResource("6_wysjc")]
+position = Vector2(984, 295)
+scale = Vector2(0.5, 0.5)
+
+[node name="Jump Pad 1" parent="." unique_id=1164891018 instance=ExtResource("7_wysjc")]
+position = Vector2(240, 320)
+
+[node name="Pressure Plate 1" parent="." unique_id=261105857 node_paths=PackedStringArray("Target") instance=ExtResource("11_gi5mo")]
+position = Vector2(615, 397)
+Target = NodePath("../Piston")
+
+[node name="Piston" parent="." unique_id=57930578 instance=ExtResource("8_xdwv4")]
+position = Vector2(423.00003, -130)
+
+[node name="Jump Pad 2" parent="." unique_id=648395360 instance=ExtResource("7_wysjc")]
+position = Vector2(1436, 319)
+Force = 1100.0
+
+[node name="Pressure Plate 2" parent="." unique_id=1023537179 node_paths=PackedStringArray("Target") instance=ExtResource("11_gi5mo")]
+position = Vector2(1580, -20)
+rotation = -1.5707964
+Target = NodePath("../Door 2")
+
+[node name="Door 2" parent="." unique_id=608645244 instance=ExtResource("6_wysjc")]
+position = Vector2(1667, 296)
+scale = Vector2(0.5, 0.5)
+
+[node name="Portal" parent="." unique_id=513684778 instance=ExtResource("9_wysjc")]
+position = Vector2(2064, 255)
+scale = Vector2(0.5, 0.5)
+LevelPath = "uid://da88syyum1oie"
+LevelNum = 3
+
+[node name="Player" parent="." unique_id=211399840 node_paths=PackedStringArray("TimeBar", "CurrPlayer", "PrevPlayer", "NextPlayer", "ElapsedLabel", "RemainingLabel") instance=ExtResource("4_rccjf")]
+position = Vector2(0, 200)
+TimeBar = NodePath("../CanvasLayer/TimerFrame/Timer")
+CurrPlayer = NodePath("../CanvasLayer/TimerFrame/CurrentPlayer")
+PrevPlayer = NodePath("../CanvasLayer/TimerFrame/PreviousPlayer")
+NextPlayer = NodePath("../CanvasLayer/TimerFrame/NextPlayer")
+ElapsedLabel = NodePath("../CanvasLayer/TimerFrame/TimeElapsedText")
+RemainingLabel = NodePath("../CanvasLayer/TimerFrame/TimeLeftText")
+
+[node name="InteractableScanner" parent="Player" index="5" unique_id=388421812 node_paths=PackedStringArray("InteractLabel")]
+InteractLabel = NodePath("../../CanvasLayer/InteractLabel")
+
+[node name="CanvasLayer" parent="." unique_id=109010406 instance=ExtResource("5_rorxg")]
+
+[editable path="Player"]
+[editable path="CanvasLayer"]

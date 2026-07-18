@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://becnf2vd6m656"]
+
+[ext_resource type="Script" uid="uid://bi3jbuopdy6fc" path="res://Interactables/Piston/Piston.gd" id="1_23vi8"]
+[ext_resource type="Texture2D" uid="uid://ccjomh4eeobg5" path="res://Interactables/Piston/Off.png" id="2_ux0rc"]
+[ext_resource type="Texture2D" uid="uid://ckqec4oqebbw2" path="res://Interactables/Piston/On.png" id="3_asd8h"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gbhba"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ux0rc")
+}],
+"loop": 1,
+"name": &"Off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_asd8h")
+}],
+"loop": 1,
+"name": &"On",
+"speed": 5.0
+}]
+
+[node name="Piston" type="StaticBody2D" unique_id=57930578 groups=["Interactables"]]
+scale = Vector2(0.3, 0.3)
+collision_mask = 0
+script = ExtResource("1_23vi8")
+Default = true
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=2050211877]
+sprite_frames = SubResource("SpriteFrames_gbhba")
+animation = &"On"
+
+[node name="ColliderOff" type="CollisionPolygon2D" parent="." unique_id=1982394967]
+visible = false
+position = Vector2(3.333374, 293.3333)
+polygon = PackedVector2Array(-256.66663, 146.66667, -256.66663, 43.333336, -190, 43.333336, -193.33337, -270, 200, -270, 200, 40, 253.33337, 43.333336, 253.33337, 146.66667)
+
+[node name="ColliderOn" type="CollisionPolygon2D" parent="." unique_id=429541651]
+visible = false
+polygon = PackedVector2Array(-256.66663, 336.66666, -183.33325, 336.66666, -183.33325, 150, -86.666626, 150, -86.666626, 53.333313, -63.333252, 53.333313, -63.333252, -216.66669, -83.33325, -216.66669, -83.33325, -296.6667, -193.33325, -296.6667, -193.33325, -333.3333, -220, -333.3333, -220, -440, 230, -440, 230, -336.6667, 210, -336.6667, 210, -300, 96.66675, -300, 96.66675, -216.66669, 76.66675, -216.66669, 76.66675, 53.333313, 100, 53.333313, 100, 146.66666, 186.66675, 146.66666, 186.66675, 340, 256.66675, 340, 256.66675, 436.66666, -256.66663, 436.66666)
