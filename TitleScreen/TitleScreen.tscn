@@ -83,11 +83,12 @@ corner_radius_bottom_left = 30
 
 [sub_resource type="FontVariation" id="FontVariation_gbhba"]
 base_font = ExtResource("3_ntd8f")
+variation_embolden = -0.3
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_urqtg"]
 texture = ExtResource("18_2v14t")
 
-[node name="MainMenu" type="Control" unique_id=1264059519 node_paths=PackedStringArray("MenuOptions", "MenuObjects", "LevelHighlight", "LevelGrid", "TutorialLabel")]
+[node name="MainMenu" type="Control" unique_id=1264059519 node_paths=PackedStringArray("MenuOptions", "BackgroundNode", "MenuObjects", "LevelHighlight", "LevelGrid", "TutorialContainer")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -97,11 +98,11 @@ grow_vertical = 2
 script = ExtResource("1_bkvni")
 MenuOptions = NodePath("MenuOptions")
 BaseFont = ExtResource("3_ntd8f")
+BackgroundNode = NodePath("Background")
 MenuObjects = [NodePath("LevelSelector"), NodePath("Tutorial"), NodePath("Options")]
 LevelHighlight = NodePath("LevelSelector/Highlight")
 LevelGrid = NodePath("LevelSelector/GridContainer")
-TutorialLabel = NodePath("Tutorial/Backg/TutorialText")
-TutorialTexts = Array[String](["Welcome to Ghastly, an escape room puzzle game! \\n \\n (Controls are keyboard only, use arrow keys, enter and escape to navigate) \\n \\n Next -->", "bingo bungo bongo", "leave pls"])
+TutorialContainer = NodePath("Tutorial/Backg")
 LockIcon = ExtResource("3_y2sa3")
 
 [node name="Background" type="TextureRect" parent="." unique_id=1528217211]
@@ -111,6 +112,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
 texture = ExtResource("4_4x3tk")
 
 [node name="Title" type="Label" parent="." unique_id=1444501047]
@@ -370,7 +372,16 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_gbhba")
 
-[node name="TutorialText" type="Label" parent="Tutorial/Backg" unique_id=324610663]
+[node name="Slide 1" type="Control" parent="Tutorial/Backg" unique_id=713245011]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Text" type="Label" parent="Tutorial/Backg/Slide 1" unique_id=324610663]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.05
@@ -383,10 +394,169 @@ theme_override_fonts/font = SubResource("FontVariation_gbhba")
 theme_override_font_sizes/font_size = 50
 text = "Welcome to Ghastly, an escape room puzzle game!
 
-(Controls are keyboard only, use arrow keys, enter and escape to navigate)
+Game controls are keyboard only, use arrow keys, enter and escape to navigate.
 
 Next -->"
 horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Slide 2" type="Control" parent="Tutorial/Backg" unique_id=388128408]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Text" type="Label" parent="Tutorial/Backg/Slide 2" unique_id=39846841]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("FontVariation_gbhba")
+theme_override_font_sizes/font_size = 50
+text = "The game consists of different levels, and in each level, your goal is to reach the portal. 
+
+You will have to interact with different objects to do so."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Slide 3" type="Control" parent="Tutorial/Backg" unique_id=175506691]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Text" type="Label" parent="Tutorial/Backg/Slide 3" unique_id=1126405636]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("FontVariation_gbhba")
+theme_override_font_sizes/font_size = 50
+text = "You will play as a humanoid blob, which cycles between 4 colors in each life
+
+Red -> Yellow -> Green -> Blue"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Slide 4" type="Control" parent="Tutorial/Backg" unique_id=712387545]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Text" type="Label" parent="Tutorial/Backg/Slide 4" unique_id=1779303287]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("FontVariation_gbhba")
+theme_override_font_sizes/font_size = 50
+text = "Each color has certain properties and effects, which you will need to use for different tasks."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Slide 5" type="Control" parent="Tutorial/Backg" unique_id=1846338480]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Header" type="Label" parent="Tutorial/Backg/Slide 5" unique_id=352373572]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.2
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.19607843, 0.19607843, 1)
+theme_override_fonts/font = SubResource("FontVariation_gbhba")
+theme_override_font_sizes/font_size = 70
+text = "RED"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Text" type="Label" parent="Tutorial/Backg/Slide 5" unique_id=1326622775]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.25
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.44995803, 0.40413746, 1)
+theme_override_fonts/font = SubResource("FontVariation_gbhba")
+theme_override_font_sizes/font_size = 32
+text = "A heavy player. It cannot jump high because of its weight, and cannot reach most blocks which needed to be reached with a jump.
+
+However, its weight also makes it able to activate and interact with certain interactables which are unaffected by other players."
+autowrap_mode = 2
+
+[node name="Slide 6" type="Control" parent="Tutorial/Backg" unique_id=2125300829]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Header" type="Label" parent="Tutorial/Backg/Slide 6" unique_id=1365738337]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.2
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.8, 0.6666667, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_gbhba")
+theme_override_font_sizes/font_size = 70
+text = "YELLOW"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Text" type="Label" parent="Tutorial/Backg/Slide 6" unique_id=138882572]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.25
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.9, 0.81749994, 0.45, 1)
+theme_override_fonts/font = SubResource("FontVariation_gbhba")
+theme_override_font_sizes/font_size = 32
+text = "Just the opposite of red - a light player. Can jump very high, reaching relatively high places that other players cannot.
+
+Use Yellow to reach very high places (and deactivate them) to let other players progress."
 autowrap_mode = 2
 
 [node name="Options" type="Panel" parent="." unique_id=1058500089]
