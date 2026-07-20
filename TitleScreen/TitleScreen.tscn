@@ -88,7 +88,20 @@ variation_embolden = -0.3
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_urqtg"]
 texture = ExtResource("18_2v14t")
 
-[node name="MainMenu" type="Control" unique_id=1264059519 node_paths=PackedStringArray("MenuOptions", "BackgroundNode", "MenuObjects", "LevelHighlight", "LevelGrid", "TutorialContainer")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0w17o"]
+bg_color = Color(0.78431374, 0.78431374, 0.78431374, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2v14t"]
+bg_color = Color(0.6, 0.53000003, 0.18, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lfvtt"]
+bg_color = Color(0.6, 0.6, 0.6, 0.39215687)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="MainMenu" type="Control" unique_id=1264059519 node_paths=PackedStringArray("MenuOptions", "BackgroundNode", "MenuObjects", "LevelHighlight", "LevelGrid", "TutorialContainer", "OptionsContainer", "OptionsHighlight")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -103,6 +116,8 @@ MenuObjects = [NodePath("LevelSelector"), NodePath("Tutorial"), NodePath("Option
 LevelHighlight = NodePath("LevelSelector/Highlight")
 LevelGrid = NodePath("LevelSelector/GridContainer")
 TutorialContainer = NodePath("Tutorial/Backg")
+OptionsContainer = NodePath("Options/Backg")
+OptionsHighlight = NodePath("Options/Highlight")
 LockIcon = ExtResource("3_y2sa3")
 
 [node name="Background" type="TextureRect" parent="." unique_id=1528217211]
@@ -494,7 +509,7 @@ anchor_right = 0.95
 anchor_bottom = 0.2
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(1, 0.19607843, 0.19607843, 1)
+theme_override_colors/font_color = Color(0.8, 0, 0, 1)
 theme_override_fonts/font = SubResource("FontVariation_gbhba")
 theme_override_font_sizes/font_size = 70
 text = "RED"
@@ -510,7 +525,7 @@ anchor_right = 0.95
 anchor_bottom = 0.95
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(1, 0.44995803, 0.40413746, 1)
+theme_override_colors/font_color = Color(0.9, 0.45, 0.45, 1)
 theme_override_fonts/font = SubResource("FontVariation_gbhba")
 theme_override_font_sizes/font_size = 32
 text = "A heavy player. It cannot jump high because of its weight, and cannot reach most blocks which needed to be reached with a jump.
@@ -519,6 +534,7 @@ However, its weight also makes it able to activate and interact with certain int
 autowrap_mode = 2
 
 [node name="Slide 6" type="Control" parent="Tutorial/Backg" unique_id=2125300829]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -551,12 +567,196 @@ anchor_right = 0.95
 anchor_bottom = 0.95
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.9, 0.81749994, 0.45, 1)
+theme_override_colors/font_color = Color(0.9, 0.825, 0.45, 1)
 theme_override_fonts/font = SubResource("FontVariation_gbhba")
 theme_override_font_sizes/font_size = 32
 text = "Just the opposite of red - a light player. Can jump very high, reaching relatively high places that other players cannot.
 
 Use Yellow to reach very high places (and deactivate them) to let other players progress."
+autowrap_mode = 2
+
+[node name="Slide 7" type="Control" parent="Tutorial/Backg" unique_id=740082426]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Header" type="Label" parent="Tutorial/Backg/Slide 7" unique_id=1957400491]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.2
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0.8, 0.09333344, 1)
+theme_override_fonts/font = SubResource("FontVariation_gbhba")
+theme_override_font_sizes/font_size = 70
+text = "GREEN"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Text" type="Label" parent="Tutorial/Backg/Slide 7" unique_id=1062017388]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.25
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.45, 0.9, 0.50250006, 1)
+theme_override_fonts/font = SubResource("FontVariation_gbhba")
+theme_override_font_sizes/font_size = 32
+text = "Kinda like a sticky slimeball. Has the ability to stick to and slide down walls slowly, including interactables.
+
+Used in places where you may not expect it, you can use it to hold items active for longer or maybe to buy yourself time."
+autowrap_mode = 2
+
+[node name="Slide 8" type="Control" parent="Tutorial/Backg" unique_id=1658112330]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Header" type="Label" parent="Tutorial/Backg/Slide 8" unique_id=1181948391]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.2
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0.2, 0.8, 1)
+theme_override_fonts/font = SubResource("FontVariation_gbhba")
+theme_override_font_sizes/font_size = 70
+text = "BLUE"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Text" type="Label" parent="Tutorial/Backg/Slide 8" unique_id=1105823386]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.25
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.45, 0.5625, 0.9, 1)
+theme_override_fonts/font = SubResource("FontVariation_gbhba")
+theme_override_font_sizes/font_size = 32
+text = "A regular player. Has no quirks, moves jumps and walks at a normal speed."
+autowrap_mode = 2
+
+[node name="Slide 9" type="Control" parent="Tutorial/Backg" unique_id=1069409917]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Text" type="Label" parent="Tutorial/Backg/Slide 9" unique_id=979555389]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("FontVariation_gbhba")
+theme_override_font_sizes/font_size = 50
+text = "Every player has a lifetime of only 15 seconds. After the player dies, it respawns as the next color.
+
+However...."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Slide 10" type="Control" parent="Tutorial/Backg" unique_id=959402302]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Text" type="Label" parent="Tutorial/Backg/Slide 10" unique_id=79639205]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("FontVariation_gbhba")
+theme_override_font_sizes/font_size = 50
+text = "All your previous runs (in differnt colors) respawn as ghost NPC's, and do all the actions of their previous run.
+
+So if the red player dies after 15 seconds, yellow will spawn, and the red player becomes a ghost"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Slide 11" type="Control" parent="Tutorial/Backg" unique_id=896312276]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Text" type="Label" parent="Tutorial/Backg/Slide 11" unique_id=1998959336]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("FontVariation_gbhba")
+theme_override_font_sizes/font_size = 50
+text = "Once you complete a full cycle and spawn back as red, the red ghost does not appear, only the ghosts of yellow, green and blue will spawn. Your current run will override the data of the red ghost."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Slide 12" type="Control" parent="Tutorial/Backg" unique_id=1742027637]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Text" type="Label" parent="Tutorial/Backg/Slide 12" unique_id=853112403]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("FontVariation_gbhba")
+theme_override_font_sizes/font_size = 50
+text = "Press <T> to move to the next player (your ghost will stay at is ending position), and <R> to restart the level.
+
+Good Luck!"
+horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="Options" type="Panel" parent="." unique_id=1058500089]
@@ -585,5 +785,258 @@ anchor_bottom = 0.13
 theme_override_fonts/font = SubResource("FontVariation_4x3tk")
 theme_override_font_sizes/font_size = 60
 text = "OPTIONS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Highlight" type="Panel" parent="Options" unique_id=1168508933]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 154.0
+offset_right = 607.2
+offset_bottom = 226.0
+scale = Vector2(1.0251828, 0.9437805)
+theme_override_styles/panel = SubResource("StyleBoxFlat_0w17o")
+
+[node name="Backg" type="Panel" parent="Options" unique_id=2138599119]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.08
+anchor_top = 0.15
+anchor_right = 0.92
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gbhba")
+
+[node name="MasterVol" type="Control" parent="Options/Backg" unique_id=1520748026]
+layout_mode = 1
+anchor_left = 0.05
+anchor_top = 0.02
+anchor_right = 0.95
+anchor_bottom = 0.12
+
+[node name="Name" type="Label" parent="Options/Backg/MasterVol" unique_id=297968957]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 1.0
+theme_override_fonts/font = ExtResource("3_ntd8f")
+theme_override_font_sizes/font_size = 35
+text = "Master Volume:"
+vertical_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="Options/Backg/MasterVol" unique_id=517997668]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_2v14t")
+max_value = 10.0
+value = 5.0
+scrollable = false
+tick_count = 10
+ticks_position = 3
+
+[node name="BackgroundVol" type="Control" parent="Options/Backg" unique_id=1095025196]
+layout_mode = 1
+anchor_left = 0.05
+anchor_top = 0.12
+anchor_right = 0.95
+anchor_bottom = 0.22
+
+[node name="Name" type="Label" parent="Options/Backg/BackgroundVol" unique_id=284403062]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 1.0
+theme_override_fonts/font = ExtResource("3_ntd8f")
+theme_override_font_sizes/font_size = 35
+text = "Background Music:"
+vertical_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="Options/Backg/BackgroundVol" unique_id=93569000]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_2v14t")
+max_value = 10.0
+value = 5.0
+scrollable = false
+tick_count = 10
+ticks_position = 3
+
+[node name="SFX" type="Control" parent="Options/Backg" unique_id=1351229303]
+layout_mode = 1
+anchor_left = 0.05
+anchor_top = 0.22
+anchor_right = 0.95
+anchor_bottom = 0.32
+
+[node name="Name" type="Label" parent="Options/Backg/SFX" unique_id=539983192]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 1.0
+theme_override_fonts/font = ExtResource("3_ntd8f")
+theme_override_font_sizes/font_size = 35
+text = "Sound Effects:"
+vertical_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="Options/Backg/SFX" unique_id=321613082]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_2v14t")
+max_value = 10.0
+value = 5.0
+scrollable = false
+tick_count = 10
+ticks_position = 3
+
+[node name="GhostVis" type="Control" parent="Options/Backg" unique_id=1932467550]
+layout_mode = 1
+anchor_left = 0.05
+anchor_top = 0.32
+anchor_right = 0.95
+anchor_bottom = 0.42
+
+[node name="Name" type="Label" parent="Options/Backg/GhostVis" unique_id=1073081681]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 1.0
+theme_override_fonts/font = ExtResource("3_ntd8f")
+theme_override_font_sizes/font_size = 35
+text = "Show Ghosts:"
+vertical_alignment = 1
+
+[node name="LArrow" type="Label" parent="Options/Backg/GhostVis" unique_id=1723681794]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_fonts/font = ExtResource("3_ntd8f")
+theme_override_font_sizes/font_size = 40
+text = "<"
+vertical_alignment = 1
+
+[node name="Value" type="Label" parent="Options/Backg/GhostVis" unique_id=1754526127]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_fonts/font = ExtResource("3_ntd8f")
+theme_override_font_sizes/font_size = 40
+text = "SHOW"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RArrow" type="Label" parent="Options/Backg/GhostVis" unique_id=2110727055]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_fonts/font = ExtResource("3_ntd8f")
+theme_override_font_sizes/font_size = 40
+text = ">"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="PortalAnim" type="Control" parent="Options/Backg" unique_id=314197551]
+layout_mode = 1
+anchor_left = 0.05
+anchor_top = 0.42
+anchor_right = 0.95
+anchor_bottom = 0.52
+
+[node name="Name" type="Label" parent="Options/Backg/PortalAnim" unique_id=1930406878]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 1.0
+theme_override_fonts/font = ExtResource("3_ntd8f")
+theme_override_font_sizes/font_size = 35
+text = "Portal Anim:"
+vertical_alignment = 1
+
+[node name="LArrow" type="Label" parent="Options/Backg/PortalAnim" unique_id=1050687699]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_fonts/font = ExtResource("3_ntd8f")
+theme_override_font_sizes/font_size = 40
+text = "<"
+vertical_alignment = 1
+
+[node name="Value" type="Label" parent="Options/Backg/PortalAnim" unique_id=1438630683]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_fonts/font = ExtResource("3_ntd8f")
+theme_override_font_sizes/font_size = 40
+text = "SHOW"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RArrow" type="Label" parent="Options/Backg/PortalAnim" unique_id=38907204]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_fonts/font = ExtResource("3_ntd8f")
+theme_override_font_sizes/font_size = 40
+text = ">"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Reset" type="Control" parent="Options/Backg" unique_id=1274731108]
+layout_mode = 1
+anchor_left = 0.05
+anchor_top = 0.52
+anchor_right = 0.95
+anchor_bottom = 0.62
+
+[node name="Name" type="Label" parent="Options/Backg/Reset" unique_id=1082156555]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 1.0
+theme_override_fonts/font = ExtResource("3_ntd8f")
+theme_override_font_sizes/font_size = 35
+text = "RESET DATA:"
+vertical_alignment = 1
+
+[node name="Btn" type="Panel" parent="Options/Backg/Reset" unique_id=1034574337]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.1
+anchor_right = 1.0
+anchor_bottom = 0.9
+theme_override_styles/panel = SubResource("StyleBoxFlat_lfvtt")
+
+[node name="Label" type="Label" parent="Options/Backg/Reset/Btn" unique_id=789630907]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_ntd8f")
+theme_override_font_sizes/font_size = 40
+text = "RESET"
 horizontal_alignment = 1
 vertical_alignment = 1

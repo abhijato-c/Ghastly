@@ -21,6 +21,8 @@ extends Node
 @export var LevelHighlight: TextureRect
 @export var LevelGrid: GridContainer
 @export var TutorialContainer: Panel
+@export var OptionsContainer: Panel
+@export var OptionsHighlight: Panel
 
 @export_group("Textures")
 @export var LockIcon: Texture2D
@@ -29,11 +31,15 @@ var MenuOpened: int = 0
 var MenuIndex: int = 0
 var LevelIndex: int = 0
 var TutorialIndex: int = 0
-var MenuLabels: Array[Node] = []
-var LevelLabels: Array[Node] = []
-var TutorialSlides: Array[Control]
-var UnlockedLevel: int = 0
+var OptionsIndex: int = 0
 
+
+var MenuLabels: Array[Label]
+var LevelLabels: Array[Label]
+var TutorialSlides: Array[Control]
+var OptionsList: Array[Control]
+
+var UnlockedLevel: int = 0
 var Offset: float
 var BackgroundTween: Tween
 
@@ -51,21 +57,23 @@ func _ready() -> void:
 		var data: Dictionary = json.get_data() as Dictionary
 		UnlockedLevel = data["UnlockedLevel"]
 	
-	MenuLabels = MenuOptions.get_children()
+	MenuLabels.assign(MenuOptions.get_children())
+	LevelLabels.assign(LevelGrid.get_children())
+	TutorialSlides.assign(TutorialContainer.get_children())
+	OptionsList.assign(OptionsContainer.get_children())
+	
 	Offset = (BackgroundExtra / (MenuLabels.size() - 1))
 	BackgroundNode.anchor_top = -(BackgroundExtra / 2)
 	BackgroundNode.anchor_bottom = 1 + (BackgroundExtra / 2)
-	UpdateMenuSelection()
 	
-	LevelLabels = LevelGrid.get_children()
-	UpdateLevelSelection()
 	for i in range(UnlockedLevel + 1, 10):
-		var label: Label = LevelLabels[i]
+		var label = LevelLabels[i]
 		var Style = label.get_theme_stylebox("normal").duplicate() as StyleBoxTexture
 		Style.texture = LockIcon
 		label.add_theme_stylebox_override("normal", Style)
 	
-	TutorialSlides.assign(TutorialContainer.get_children())
+	UpdateMenuSelection()
+	UpdateLevelSelection()
 	UpdateTutorialSelection()
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -79,6 +87,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		LevelAction(event)
 	elif MenuOpened == 2:
 		TutorialAction(event)
+	elif MenuOpened == 3:
+		OptionsAction(event)
 
 func MenuAction(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_up") and MenuIndex > 0:
@@ -120,9 +130,17 @@ func TutorialAction(event: InputEvent) -> void:
 		TutorialIndex += 1
 	UpdateTutorialSelection()
 
+func OptionsAction(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_up") and OptionsIndex > 0:
+		OptionsIndex -=1
+		UpdateOptionSelection(true)
+	elif event.is_action_pressed("ui_down") and OptionsIndex < OptionsList.size() - 1:
+		OptionsIndex += 1
+		UpdateOptionSelection(true)
+
 func UpdateMenuSelection() -> void:
 	for i in range(MenuLabels.size()):
-		var option = MenuLabels[i] as Label
+		var option = MenuLabels[i]
 		if i == MenuIndex:
 			option.add_theme_font_size_override("font_size", SelectedFontSize)
 			option.add_theme_color_override("font_color", SelectedColor)
@@ -159,7 +177,7 @@ func UpdateMenuSelection() -> void:
 	BackgroundTween.parallel().tween_property(BackgroundNode, "anchor_right", 1 + (Offset * (MenuLabels.size() - 1 - MenuIndex)), TweenDuration)
 
 func UpdateLevelSelection() -> void:
-	var LevelLabel = LevelLabels[LevelIndex] as Control
+	var LevelLabel = LevelLabels[LevelIndex]
 	var offset = (LevelLabel.size - LevelHighlight.size) / 2
 	LevelHighlight.global_position = LevelLabel.global_position + offset
 
@@ -169,3 +187,8 @@ func UpdateTutorialSelection() -> void:
 			TutorialSlides[i].show()
 		else:
 			TutorialSlides[i].hide()
+
+func UpdateOptionSelection(Move: bool, Index: int = 0, Action: bool = false) -> void:
+	if Move:
+		OptionsHighlight.global_position = OptionsList[OptionsIndex].global_position
+		OptionsHighlight.size = OptionsList[OptionsIndex].size
