@@ -13,7 +13,7 @@ extends Node
 @export var SelectedEmbolden: float = 0.5
 @export var SelectedSpacing: float = 0
 @export var BackgroundExtra: float = 0.5
-@export var TweenDuration: float = 1
+@export var TweenDuration: float = 1.5
 
 @export_group("Menu Objects")
 @export var BackgroundNode: TextureRect

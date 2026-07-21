@@ -1,3 +1,34 @@
-[gd_scene format=3 uid="uid://da88syyum1oie"]
+[gd_scene format=4 uid="uid://da88syyum1oie"]
 
-[node name="Level4" type="Node2D" unique_id=1698872249]
+[ext_resource type="Script" uid="uid://dtxsv08e1x1ql" path="res://Levels/LevelController.gd" id="1_0honl"]
+[ext_resource type="PackedScene" uid="uid://cquxki84ra1sp" path="res://Levels/Assets/Background.tscn" id="1_dwv3m"]
+[ext_resource type="TileSet" uid="uid://dyp81n1sjrjes" path="res://Tilemaps/TileSet.tres" id="2_0honl"]
+[ext_resource type="PackedScene" uid="uid://deudmk0pcpt0a" path="res://Player/Player.tscn" id="3_ho11w"]
+[ext_resource type="PackedScene" uid="uid://umaxlr8x3fat" path="res://Levels/Assets/Canvas.tscn" id="4_wx6ft"]
+
+[node name="Level4" type="Node2D" unique_id=1698872249 node_paths=PackedStringArray("Player")]
+script = ExtResource("1_0honl")
+Player = NodePath("Player")
+
+[node name="Background" parent="." unique_id=1731978134 instance=ExtResource("1_dwv3m")]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1041410133]
+tile_map_data = PackedByteArray("AAAAAAUAAAAAAAIAAAAAAAQAAAAAAAEAAAAAAAMAAAAAAAEAAAAAAAIAAAAAAAEAAAABAAUAAAABAAIAAAACAAUAAAABAAIAAAADAAUAAAABAAIAAAAEAAUAAAABAAIAAAAFAAUAAAABAAIAAAAGAAUAAAABAAIAAAAHAAUAAAABAAIAAAAIAAUAAAACAAIAAAABAAIAAAABAAEAAAABAAMAAAABAAEAAAABAAQAAAABAAEAAAACAAQAAAABAAEAAAACAAMAAAABAAEAAAACAAIAAAABAAEAAAADAAIAAAABAAEAAAADAAMAAAABAAEAAAADAAQAAAABAAEAAAAEAAQAAAABAAEAAAAEAAMAAAABAAEAAAAEAAIAAAABAAEAAAAFAAIAAAABAAEAAAAFAAMAAAABAAEAAAAFAAQAAAABAAEAAAAGAAQAAAABAAEAAAAHAAQAAAABAAEAAAAIAAQAAAABAAEAAAAIAAMAAAABAAEAAAAHAAMAAAABAAEAAAAGAAMAAAABAAEAAAAGAAIAAAABAAEAAAAHAAIAAAABAAEAAAAIAAIAAAABAAEAAAA=")
+tile_set = ExtResource("2_0honl")
+
+[node name="Player" parent="." unique_id=211399840 node_paths=PackedStringArray("TimeBar", "CurrPlayer", "PrevPlayer", "NextPlayer", "ElapsedLabel", "RemainingLabel") instance=ExtResource("3_ho11w")]
+position = Vector2(200, 800)
+TimeBar = NodePath("../CanvasLayer/TimerFrame/Timer")
+CurrPlayer = NodePath("../CanvasLayer/TimerFrame/CurrentPlayer")
+PrevPlayer = NodePath("../CanvasLayer/TimerFrame/PreviousPlayer")
+NextPlayer = NodePath("../CanvasLayer/TimerFrame/NextPlayer")
+ElapsedLabel = NodePath("../CanvasLayer/TimerFrame/TimeElapsedText")
+RemainingLabel = NodePath("../CanvasLayer/TimerFrame/TimeLeftText")
+
+[node name="InteractableScanner" parent="Player" index="5" unique_id=388421812 node_paths=PackedStringArray("InteractLabel")]
+InteractLabel = NodePath("../../CanvasLayer/InteractLabel")
+
+[node name="CanvasLayer" parent="." unique_id=109010406 instance=ExtResource("4_wx6ft")]
+
+[editable path="Player"]
+[editable path="CanvasLayer"]
