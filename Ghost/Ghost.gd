@@ -20,7 +20,8 @@ func Enable() -> void:
 	Accumulator = 0
 	set_deferred("monitorable", true)
 	set_physics_process(true)
-	show()
+	if Globals.Config["Show Ghosts"]:
+		show()
 
 func UpdateHistory(PosHistory: Array[Vector2], InteractHistory: Array[Callable]) -> void:
 	PositionHistory = PosHistory

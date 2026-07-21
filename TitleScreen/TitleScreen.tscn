@@ -101,7 +101,7 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[node name="MainMenu" type="Control" unique_id=1264059519 node_paths=PackedStringArray("MenuOptions", "BackgroundNode", "MenuObjects", "LevelHighlight", "LevelGrid", "TutorialContainer", "OptionsContainer", "OptionsHighlight")]
+[node name="MainMenu" type="Control" unique_id=1264059519 node_paths=PackedStringArray("MenuOptions", "BackgroundNode", "MenuObjects", "LevelHighlight", "LevelGrid", "TutorialContainer", "OptionsContainer", "OptionsHighlight", "MasterVolSlider", "BackgroundVolSlider", "SFXSlider", "GhostVisText", "PortalAnimText")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -118,6 +118,11 @@ LevelGrid = NodePath("LevelSelector/GridContainer")
 TutorialContainer = NodePath("Tutorial/Backg")
 OptionsContainer = NodePath("Options/Backg")
 OptionsHighlight = NodePath("Options/Highlight")
+MasterVolSlider = NodePath("Options/Backg/MasterVol/HSlider")
+BackgroundVolSlider = NodePath("Options/Backg/BackgroundVol/HSlider")
+SFXSlider = NodePath("Options/Backg/SFX/HSlider")
+GhostVisText = NodePath("Options/Backg/GhostVis/Value")
+PortalAnimText = NodePath("Options/Backg/PortalAnim/Value")
 LockIcon = ExtResource("3_y2sa3")
 
 [node name="Background" type="TextureRect" parent="." unique_id=1528217211]

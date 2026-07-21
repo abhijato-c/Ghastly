@@ -24,6 +24,13 @@ extends Node
 @export var OptionsContainer: Panel
 @export var OptionsHighlight: Panel
 
+@export_group("Options")
+@export var MasterVolSlider: Slider
+@export var BackgroundVolSlider: Slider
+@export var SFXSlider: Slider
+@export var GhostVisText: Label
+@export var PortalAnimText: Label
+
 @export_group("Textures")
 @export var LockIcon: Texture2D
 
@@ -39,23 +46,11 @@ var LevelLabels: Array[Label]
 var TutorialSlides: Array[Control]
 var OptionsList: Array[Control]
 
-var UnlockedLevel: int = 0
 var Offset: float
 var BackgroundTween: Tween
 
 func _ready() -> void:
-	if not FileAccess.file_exists(Globals.ConfigPath):
-		var file: FileAccess = FileAccess.open(Globals.ConfigPath, FileAccess.WRITE)
-		var json: Dictionary = {"UnlockedLevel": 0}
-		file.store_string(JSON.stringify(json))
-		file.close()
-		UnlockedLevel = 0
-	else:
-		var file: FileAccess = FileAccess.open(Globals.ConfigPath, FileAccess.READ)
-		var json = JSON.new()
-		var _res = json.parse(file.get_as_text())
-		var data: Dictionary = json.get_data() as Dictionary
-		UnlockedLevel = data["UnlockedLevel"]
+	Globals.LoadConfig()
 	
 	MenuLabels.assign(MenuOptions.get_children())
 	LevelLabels.assign(LevelGrid.get_children())
@@ -66,7 +61,7 @@ func _ready() -> void:
 	BackgroundNode.anchor_top = -(BackgroundExtra / 2)
 	BackgroundNode.anchor_bottom = 1 + (BackgroundExtra / 2)
 	
-	for i in range(UnlockedLevel + 1, 10):
+	for i in range(Globals.Config["Unlocked Level"] + 1, 10):
 		var label = LevelLabels[i]
 		var Style = label.get_theme_stylebox("normal").duplicate() as StyleBoxTexture
 		Style.texture = LockIcon
@@ -75,6 +70,7 @@ func _ready() -> void:
 	UpdateMenuSelection()
 	UpdateLevelSelection()
 	UpdateTutorialSelection()
+	UpdateOptionSelection()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
@@ -114,11 +110,11 @@ func LevelAction(event: InputEvent) -> void:
 		LevelIndex -= 1
 	elif  event.is_action_pressed("ui_right"):
 		LevelIndex += 1
-	elif event.is_action_pressed("ui_accept") and LevelIndex <= UnlockedLevel:
+	elif event.is_action_pressed("ui_accept") and LevelIndex <= Globals.Config["Unlocked Level"]:
 		get_tree().change_scene_to_file("res://Levels/Level-{n}.tscn".format({"n": LevelIndex + 1}))
 		return
 	
-	if LevelIndex < 0 or LevelIndex > 9 or LevelIndex > UnlockedLevel:
+	if LevelIndex < 0 or LevelIndex > 9 or LevelIndex > Globals.Config["Unlocked Level"]:
 		LevelIndex = PrevLevel
 	else:
 		UpdateLevelSelection()
@@ -133,10 +129,39 @@ func TutorialAction(event: InputEvent) -> void:
 func OptionsAction(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_up") and OptionsIndex > 0:
 		OptionsIndex -=1
-		UpdateOptionSelection(true)
+		UpdateOptionSelection()
 	elif event.is_action_pressed("ui_down") and OptionsIndex < OptionsList.size() - 1:
 		OptionsIndex += 1
-		UpdateOptionSelection(true)
+		UpdateOptionSelection()
+	elif event.is_action_pressed("ui_right"):
+		if OptionsIndex == 0 and Globals.Config["Master Volume"] < 10:
+			Globals.Config["Master Volume"] += 1
+		elif  OptionsIndex == 1 and Globals.Config["Background Music"] < 10:
+			Globals.Config["Background Music"] += 1
+		elif  OptionsIndex == 2 and Globals.Config["Sound Effects"] < 10:
+			Globals.Config["Sound Effects"] += 1
+		elif OptionsIndex == 3:
+			Globals.Config["Show Ghosts"] = not Globals.Config["Show Ghosts"]
+		elif OptionsIndex == 4:
+			Globals.Config["Portal Animation"] = not Globals.Config["Portal Animation"]
+		UpdateOptionSelection()
+		Globals.SaveConfig()
+	elif event.is_action_pressed("ui_left"):
+		if OptionsIndex == 0 and Globals.Config["Master Volume"] > 0:
+			Globals.Config["Master Volume"] -= 1
+		elif  OptionsIndex == 1 and Globals.Config["Background Music"] > 0:
+			Globals.Config["Background Music"] -= 1
+		elif  OptionsIndex == 2 and Globals.Config["Sound Effects"] > 0:
+			Globals.Config["Sound Effects"] -= 1
+		elif OptionsIndex == 3:
+			Globals.Config["Show Ghosts"] = not Globals.Config["Show Ghosts"]
+		elif OptionsIndex == 4:
+			Globals.Config["Portal Animation"] = not Globals.Config["Portal Animation"]
+		UpdateOptionSelection()
+		Globals.SaveConfig()
+	elif event.is_action_pressed("ui_accept") and OptionsIndex == 5:
+		Globals.ResetConfig()
+		UpdateOptionSelection()
 
 func UpdateMenuSelection() -> void:
 	for i in range(MenuLabels.size()):
@@ -188,7 +213,17 @@ func UpdateTutorialSelection() -> void:
 		else:
 			TutorialSlides[i].hide()
 
-func UpdateOptionSelection(Move: bool, Index: int = 0, Action: bool = false) -> void:
-	if Move:
-		OptionsHighlight.global_position = OptionsList[OptionsIndex].global_position
-		OptionsHighlight.size = OptionsList[OptionsIndex].size
+func UpdateOptionSelection() -> void:
+	OptionsHighlight.global_position = OptionsList[OptionsIndex].global_position
+	OptionsHighlight.size = OptionsList[OptionsIndex].size
+	MasterVolSlider.value = Globals.Config["Master Volume"]
+	BackgroundVolSlider.value = Globals.Config["Background Music"]
+	SFXSlider.value = Globals.Config["Sound Effects"]
+	if Globals.Config["Show Ghosts"]:
+		GhostVisText.text = "SHOW"
+	else:
+		GhostVisText.text = "HIDE"
+	if Globals.Config["Portal Animation"]:
+		PortalAnimText.text = "SHOW"
+	else:
+		PortalAnimText.text = "HIDE"
