@@ -136,8 +136,10 @@ func OptionsAction(event: InputEvent) -> void:
 	elif event.is_action_pressed("ui_right"):
 		if OptionsIndex == 0 and Globals.Config["Master Volume"] < 10:
 			Globals.Config["Master Volume"] += 1
+			BGM.UpdateVolume()
 		elif  OptionsIndex == 1 and Globals.Config["Background Music"] < 10:
 			Globals.Config["Background Music"] += 1
+			BGM.UpdateVolume()
 		elif  OptionsIndex == 2 and Globals.Config["Sound Effects"] < 10:
 			Globals.Config["Sound Effects"] += 1
 		elif OptionsIndex == 3:
@@ -149,8 +151,10 @@ func OptionsAction(event: InputEvent) -> void:
 	elif event.is_action_pressed("ui_left"):
 		if OptionsIndex == 0 and Globals.Config["Master Volume"] > 0:
 			Globals.Config["Master Volume"] -= 1
+			BGM.UpdateVolume()
 		elif  OptionsIndex == 1 and Globals.Config["Background Music"] > 0:
 			Globals.Config["Background Music"] -= 1
+			BGM.UpdateVolume()
 		elif  OptionsIndex == 2 and Globals.Config["Sound Effects"] > 0:
 			Globals.Config["Sound Effects"] -= 1
 		elif OptionsIndex == 3:
