@@ -10,6 +10,11 @@ Ghastly is a game where you play as a character which spawns as different colore
 
 ---
 
+## Setup and Playing
+Playable on the web and download files on [Ghastly on Itch](m-8000.itch.io/ghastly). Double click the executables after unzipping to play locally.
+
+---
+
 ## Player Colors
 1. **Red:** A heavy player. It cannot jump high because of its weight, and cannot reach most blocks which needed to be reached with a jump. However, its weight also makes it able to activate and interact with certain interactables which are unaffected by other players.
 
