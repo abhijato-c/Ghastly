@@ -1,6 +1,6 @@
 ## Ghastly
 
-![Banner](https://github.com/abhijato-c/Ghastly/blob/main/Images/4x3.png)
+![Banner](https://github.com/abhijato-c/Ghastly/blob/main/Images/Screenshot.png)
 >  A 2D escape room puzzle game with a twist... 
 
 ---
@@ -51,4 +51,4 @@ Developed entirely in godot, minor image editing done in GIMP.
 ---
 
 ## AI Usage
-AI was used for art generation mainly, and debugging.
+AI was used for debugging and level ideas.
