@@ -8,6 +8,8 @@ extends Node2D
 
 var OnPlate: Array[Node2D] = []
 var Pressed: bool = false
+var PressedAudio: AudioStream = preload("res://Audio/Effects/PressurePlateOn.mp3")
+var ReleasedAudio: AudioStream = preload("res://Audio/Effects/PressurePlateOff.mp3")
 
 func _ready() -> void:
 	DetectionZone.body_entered.connect(ObjectEntered)
@@ -37,6 +39,7 @@ func Activate() -> void:
 	ColliderOn.set_deferred("disabled", false)
 	ColliderOff.set_deferred("disabled", true)
 	Target.Activate()
+	BGM.PlayEffect(PressedAudio)
 
 func Deactivate() -> void:
 	Pressed = false
@@ -44,6 +47,7 @@ func Deactivate() -> void:
 	ColliderOn.set_deferred("disabled", true)
 	ColliderOff.set_deferred("disabled", false)
 	Target.Deactivate()
+	BGM.PlayEffect(ReleasedAudio)
 
 func Reset() -> void:
 	Deactivate()

@@ -1,0 +1,206 @@
+[gd_scene format=3 uid="uid://b3igvtjmpbv3a"]
+
+[ext_resource type="Texture2D" uid="uid://domhhbhxlswvq" path="res://Levels/Backgrounds/LevelSelBg.png" id="1_f0hrr"]
+[ext_resource type="FontFile" uid="uid://dn2im1fnexyp6" path="res://Fonts/BoldPixels.ttf" id="2_5uq1x"]
+[ext_resource type="Texture2D" uid="uid://df07o8680kqt6" path="res://Levels/LevelSelector/1.png" id="3_sbp6b"]
+[ext_resource type="Texture2D" uid="uid://cc53w8pib2fi" path="res://Levels/LevelSelector/2.png" id="4_fr5s5"]
+[ext_resource type="Texture2D" uid="uid://cqnpar06ek87x" path="res://Levels/LevelSelector/3.png" id="5_j5cmg"]
+[ext_resource type="Texture2D" uid="uid://ifw8rtjd1gxd" path="res://Levels/LevelSelector/4.png" id="6_btblt"]
+[ext_resource type="Texture2D" uid="uid://cifl3mqd8f8t7" path="res://Levels/LevelSelector/5.png" id="7_l4g2s"]
+[ext_resource type="Texture2D" uid="uid://bqmqa2v8moyyp" path="res://Levels/LevelSelector/6.png" id="8_u4347"]
+[ext_resource type="Texture2D" uid="uid://dmqjwfwj661rm" path="res://Levels/LevelSelector/7.png" id="9_h5ujq"]
+[ext_resource type="Texture2D" uid="uid://bd6wlnedn7vjh" path="res://Levels/LevelSelector/8.png" id="10_ugnjv"]
+[ext_resource type="Texture2D" uid="uid://dhcaul715j67" path="res://Levels/LevelSelector/9.png" id="11_s5p73"]
+[ext_resource type="Texture2D" uid="uid://vrp5et8tkqs1" path="res://Levels/LevelSelector/10.png" id="12_u1h7b"]
+[ext_resource type="Texture2D" uid="uid://d87aokktri6f" path="res://Levels/LevelSelector/Highlight.png" id="13_qjum6"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lfvtt"]
+texture = ExtResource("1_f0hrr")
+modulate_color = Color(1, 1, 1, 0.9411765)
+
+[sub_resource type="FontVariation" id="FontVariation_4x3tk"]
+variation_embolden = 0.5
+
+[sub_resource type="FontVariation" id="FontVariation_lfvtt"]
+base_font = ExtResource("2_5uq1x")
+variation_embolden = 0.55
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_660gt"]
+texture = ExtResource("3_sbp6b")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eb6va"]
+texture = ExtResource("4_fr5s5")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_moaws"]
+texture = ExtResource("5_j5cmg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sovc6"]
+texture = ExtResource("6_btblt")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eq1nl"]
+texture = ExtResource("7_l4g2s")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q77h3"]
+texture = ExtResource("8_u4347")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2hjge"]
+texture = ExtResource("9_h5ujq")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0weyl"]
+texture = ExtResource("10_ugnjv")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_430so"]
+texture = ExtResource("11_s5p73")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gbhba"]
+texture = ExtResource("12_u1h7b")
+
+[node name="LevelSelector" type="Panel" unique_id=921883408]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -210.0
+offset_right = 400.0
+offset_bottom = 210.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxTexture_lfvtt")
+
+[node name="Title" type="Label" parent="." unique_id=1474054952]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.08
+anchor_right = 1.0
+anchor_bottom = 0.2
+theme_override_fonts/font = SubResource("FontVariation_4x3tk")
+theme_override_font_sizes/font_size = 55
+text = "Pick a Level"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="." unique_id=365319559]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.6
+anchor_right = 0.5
+anchor_bottom = 0.6
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 30
+theme_override_constants/v_separation = 30
+columns = 5
+
+[node name="Lv1" type="Label" parent="GridContainer" unique_id=597795437]
+custom_minimum_size = Vector2(100, 100)
+custom_maximum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = SubResource("FontVariation_lfvtt")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_660gt")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lv2" type="Label" parent="GridContainer" unique_id=78937070]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = SubResource("FontVariation_lfvtt")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_eb6va")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lv3" type="Label" parent="GridContainer" unique_id=649431548]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = SubResource("FontVariation_lfvtt")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_moaws")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lv4" type="Label" parent="GridContainer" unique_id=324855235]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = SubResource("FontVariation_lfvtt")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_sovc6")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lv5" type="Label" parent="GridContainer" unique_id=1487203426]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = SubResource("FontVariation_lfvtt")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_eq1nl")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lv6" type="Label" parent="GridContainer" unique_id=2119293731]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = SubResource("FontVariation_lfvtt")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_q77h3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lv7" type="Label" parent="GridContainer" unique_id=663783649]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = SubResource("FontVariation_lfvtt")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_2hjge")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lv8" type="Label" parent="GridContainer" unique_id=1375138485]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = SubResource("FontVariation_lfvtt")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_0weyl")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lv9" type="Label" parent="GridContainer" unique_id=546476602]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = SubResource("FontVariation_lfvtt")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_430so")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lv10" type="Label" parent="GridContainer" unique_id=1957254836]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = SubResource("FontVariation_lfvtt")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_gbhba")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Highlight" type="TextureRect" parent="." unique_id=648128429]
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 100.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("13_qjum6")
+expand_mode = 1

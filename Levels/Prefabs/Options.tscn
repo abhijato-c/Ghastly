@@ -1,0 +1,311 @@
+[gd_scene format=3 uid="uid://d1rmd88jammhf"]
+
+[ext_resource type="Texture2D" uid="uid://bdbnnq6cbibv" path="res://Levels/Backgrounds/OptionsBg.png" id="1_eoiye"]
+[ext_resource type="FontFile" uid="uid://dn2im1fnexyp6" path="res://Fonts/BoldPixels.ttf" id="2_ve0m8"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_urqtg"]
+texture = ExtResource("1_eoiye")
+
+[sub_resource type="FontVariation" id="FontVariation_4x3tk"]
+variation_embolden = 0.5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0w17o"]
+bg_color = Color(0.78431374, 0.78431374, 0.78431374, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gbhba"]
+bg_color = Color(0, 0, 0, 0.7058824)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2v14t"]
+bg_color = Color(0.6, 0.53000003, 0.18, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lfvtt"]
+bg_color = Color(0.6, 0.6, 0.6, 0.39215687)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="Options" type="Panel" unique_id=984646986]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -450.0
+offset_right = 350.0
+offset_bottom = 450.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxTexture_urqtg")
+
+[node name="Title" type="Label" parent="." unique_id=505104187]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.05
+anchor_right = 1.0
+anchor_bottom = 0.13
+theme_override_fonts/font = SubResource("FontVariation_4x3tk")
+theme_override_font_sizes/font_size = 60
+text = "OPTIONS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Highlight" type="Panel" parent="." unique_id=425529803]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 154.0
+offset_right = 607.2
+offset_bottom = 226.0
+scale = Vector2(1.0251828, 0.9437805)
+theme_override_styles/panel = SubResource("StyleBoxFlat_0w17o")
+
+[node name="Backg" type="Panel" parent="." unique_id=540236213]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.08
+anchor_top = 0.15
+anchor_right = 0.92
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gbhba")
+
+[node name="MasterVol" type="Control" parent="Backg" unique_id=1593931451]
+layout_mode = 1
+anchor_left = 0.05
+anchor_top = 0.02
+anchor_right = 0.95
+anchor_bottom = 0.12
+
+[node name="Name" type="Label" parent="Backg/MasterVol" unique_id=1577317243]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 1.0
+theme_override_fonts/font = ExtResource("2_ve0m8")
+theme_override_font_sizes/font_size = 35
+text = "Master Volume:"
+vertical_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="Backg/MasterVol" unique_id=798296300]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_2v14t")
+max_value = 10.0
+value = 5.0
+scrollable = false
+tick_count = 10
+ticks_position = 3
+
+[node name="BackgroundVol" type="Control" parent="Backg" unique_id=1232199590]
+layout_mode = 1
+anchor_left = 0.05
+anchor_top = 0.12
+anchor_right = 0.95
+anchor_bottom = 0.22
+
+[node name="Name" type="Label" parent="Backg/BackgroundVol" unique_id=2049357332]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 1.0
+theme_override_fonts/font = ExtResource("2_ve0m8")
+theme_override_font_sizes/font_size = 35
+text = "Background Music:"
+vertical_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="Backg/BackgroundVol" unique_id=369206796]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_2v14t")
+max_value = 10.0
+value = 5.0
+scrollable = false
+tick_count = 10
+ticks_position = 3
+
+[node name="SFX" type="Control" parent="Backg" unique_id=1755385070]
+layout_mode = 1
+anchor_left = 0.05
+anchor_top = 0.22
+anchor_right = 0.95
+anchor_bottom = 0.32
+
+[node name="Name" type="Label" parent="Backg/SFX" unique_id=703052270]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 1.0
+theme_override_fonts/font = ExtResource("2_ve0m8")
+theme_override_font_sizes/font_size = 35
+text = "Sound Effects:"
+vertical_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="Backg/SFX" unique_id=1174121729]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_2v14t")
+max_value = 10.0
+value = 5.0
+scrollable = false
+tick_count = 10
+ticks_position = 3
+
+[node name="GhostVis" type="Control" parent="Backg" unique_id=1405245496]
+layout_mode = 1
+anchor_left = 0.05
+anchor_top = 0.32
+anchor_right = 0.95
+anchor_bottom = 0.42
+
+[node name="Name" type="Label" parent="Backg/GhostVis" unique_id=1681656918]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 1.0
+theme_override_fonts/font = ExtResource("2_ve0m8")
+theme_override_font_sizes/font_size = 35
+text = "Show Ghosts:"
+vertical_alignment = 1
+
+[node name="LArrow" type="Label" parent="Backg/GhostVis" unique_id=1006103240]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_fonts/font = ExtResource("2_ve0m8")
+theme_override_font_sizes/font_size = 40
+text = "<"
+vertical_alignment = 1
+
+[node name="Value" type="Label" parent="Backg/GhostVis" unique_id=615258703]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_fonts/font = ExtResource("2_ve0m8")
+theme_override_font_sizes/font_size = 40
+text = "SHOW"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RArrow" type="Label" parent="Backg/GhostVis" unique_id=1709365027]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_fonts/font = ExtResource("2_ve0m8")
+theme_override_font_sizes/font_size = 40
+text = ">"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="PortalAnim" type="Control" parent="Backg" unique_id=721041606]
+layout_mode = 1
+anchor_left = 0.05
+anchor_top = 0.42
+anchor_right = 0.95
+anchor_bottom = 0.52
+
+[node name="Name" type="Label" parent="Backg/PortalAnim" unique_id=611123837]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 1.0
+theme_override_fonts/font = ExtResource("2_ve0m8")
+theme_override_font_sizes/font_size = 35
+text = "Portal Anim:"
+vertical_alignment = 1
+
+[node name="LArrow" type="Label" parent="Backg/PortalAnim" unique_id=919442738]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_fonts/font = ExtResource("2_ve0m8")
+theme_override_font_sizes/font_size = 40
+text = "<"
+vertical_alignment = 1
+
+[node name="Value" type="Label" parent="Backg/PortalAnim" unique_id=1252761242]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_fonts/font = ExtResource("2_ve0m8")
+theme_override_font_sizes/font_size = 40
+text = "SHOW"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RArrow" type="Label" parent="Backg/PortalAnim" unique_id=1488715937]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_fonts/font = ExtResource("2_ve0m8")
+theme_override_font_sizes/font_size = 40
+text = ">"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Reset" type="Control" parent="Backg" unique_id=399106182]
+layout_mode = 1
+anchor_left = 0.05
+anchor_top = 0.52
+anchor_right = 0.95
+anchor_bottom = 0.62
+
+[node name="Name" type="Label" parent="Backg/Reset" unique_id=1010033524]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 1.0
+theme_override_fonts/font = ExtResource("2_ve0m8")
+theme_override_font_sizes/font_size = 35
+text = "RESET DATA:"
+vertical_alignment = 1
+
+[node name="Btn" type="Panel" parent="Backg/Reset" unique_id=1261288244]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.1
+anchor_right = 1.0
+anchor_bottom = 0.9
+theme_override_styles/panel = SubResource("StyleBoxFlat_lfvtt")
+
+[node name="Label" type="Label" parent="Backg/Reset/Btn" unique_id=1385675775]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_ve0m8")
+theme_override_font_sizes/font_size = 40
+text = "RESET"
+horizontal_alignment = 1
+vertical_alignment = 1

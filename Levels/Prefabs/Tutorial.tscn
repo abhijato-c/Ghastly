@@ -1,0 +1,432 @@
+[gd_scene format=3 uid="uid://cgjna15pct2qm"]
+
+[ext_resource type="Texture2D" uid="uid://b8w27xm3e2i7h" path="res://Levels/Backgrounds/TutorialBg.png" id="1_12e6q"]
+[ext_resource type="FontFile" uid="uid://dn2im1fnexyp6" path="res://Fonts/BoldPixels.ttf" id="2_gevea"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0w17o"]
+texture = ExtResource("1_12e6q")
+
+[sub_resource type="FontVariation" id="FontVariation_4x3tk"]
+variation_embolden = 0.5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gbhba"]
+bg_color = Color(0, 0, 0, 0.7058824)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="FontVariation" id="FontVariation_gbhba"]
+base_font = ExtResource("2_gevea")
+variation_embolden = -0.3
+
+[node name="Tutorial" type="Panel" unique_id=1547805216]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -450.0
+offset_top = -300.0
+offset_right = 450.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxTexture_0w17o")
+
+[node name="Title" type="Label" parent="." unique_id=794874424]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.06
+anchor_right = 1.0
+anchor_bottom = 0.21
+theme_override_fonts/font = SubResource("FontVariation_4x3tk")
+theme_override_font_sizes/font_size = 55
+text = "TUTORIAL"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Backg" type="Panel" parent="." unique_id=1223435349]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.2
+anchor_right = 0.95
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gbhba")
+
+[node name="Slide 1" type="Control" parent="Backg" unique_id=807767698]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Text" type="Label" parent="Backg/Slide 1" unique_id=7962113]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("FontVariation_gbhba")
+theme_override_font_sizes/font_size = 50
+text = "Welcome to Ghastly, an escape room puzzle game!
+
+Game controls are keyboard only, use arrow keys, enter and escape to navigate.
+
+Next -->"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Slide 2" type="Control" parent="Backg" unique_id=1578022071]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Text" type="Label" parent="Backg/Slide 2" unique_id=264812644]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("FontVariation_gbhba")
+theme_override_font_sizes/font_size = 50
+text = "The game consists of different levels, and in each level, your goal is to reach the portal. 
+
+You will have to interact with different objects to do so."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Slide 3" type="Control" parent="Backg" unique_id=863030903]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Text" type="Label" parent="Backg/Slide 3" unique_id=285956273]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("FontVariation_gbhba")
+theme_override_font_sizes/font_size = 50
+text = "You will play as a humanoid blob, which cycles between 4 colors in each life
+
+Red -> Yellow -> Green -> Blue"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Slide 4" type="Control" parent="Backg" unique_id=1127434157]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Text" type="Label" parent="Backg/Slide 4" unique_id=94173478]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("FontVariation_gbhba")
+theme_override_font_sizes/font_size = 50
+text = "Each color has certain properties and effects, which you will need to use for different tasks."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Slide 5" type="Control" parent="Backg" unique_id=969260805]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Header" type="Label" parent="Backg/Slide 5" unique_id=1094235082]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.2
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.8, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_gbhba")
+theme_override_font_sizes/font_size = 70
+text = "RED"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Text" type="Label" parent="Backg/Slide 5" unique_id=473622031]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.25
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.9, 0.45, 0.45, 1)
+theme_override_fonts/font = SubResource("FontVariation_gbhba")
+theme_override_font_sizes/font_size = 32
+text = "A heavy player. It cannot jump high because of its weight, and cannot reach most blocks which needed to be reached with a jump.
+
+However, its weight also makes it able to activate and interact with certain interactables which are unaffected by other players."
+autowrap_mode = 2
+
+[node name="Slide 6" type="Control" parent="Backg" unique_id=20938804]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Header" type="Label" parent="Backg/Slide 6" unique_id=1431647056]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.2
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.8, 0.6666667, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_gbhba")
+theme_override_font_sizes/font_size = 70
+text = "YELLOW"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Text" type="Label" parent="Backg/Slide 6" unique_id=1503392148]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.25
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.9, 0.825, 0.45, 1)
+theme_override_fonts/font = SubResource("FontVariation_gbhba")
+theme_override_font_sizes/font_size = 32
+text = "Just the opposite of red - a light player. Can jump very high, reaching relatively high places that other players cannot.
+
+Use Yellow to reach very high places (and deactivate them) to let other players progress."
+autowrap_mode = 2
+
+[node name="Slide 7" type="Control" parent="Backg" unique_id=1774526005]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Header" type="Label" parent="Backg/Slide 7" unique_id=326567988]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.2
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0.8, 0.09333344, 1)
+theme_override_fonts/font = SubResource("FontVariation_gbhba")
+theme_override_font_sizes/font_size = 70
+text = "GREEN"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Text" type="Label" parent="Backg/Slide 7" unique_id=907775228]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.25
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.45, 0.9, 0.50250006, 1)
+theme_override_fonts/font = SubResource("FontVariation_gbhba")
+theme_override_font_sizes/font_size = 32
+text = "Kinda like a sticky slimeball. Has the ability to stick to and slide down walls slowly, including interactables.
+
+Used in places where you may not expect it, you can use it to hold items active for longer or maybe to buy yourself time."
+autowrap_mode = 2
+
+[node name="Slide 8" type="Control" parent="Backg" unique_id=586545019]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Header" type="Label" parent="Backg/Slide 8" unique_id=744537434]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.2
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0.2, 0.8, 1)
+theme_override_fonts/font = SubResource("FontVariation_gbhba")
+theme_override_font_sizes/font_size = 70
+text = "BLUE"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Text" type="Label" parent="Backg/Slide 8" unique_id=1210165148]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.25
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.45, 0.5625, 0.9, 1)
+theme_override_fonts/font = SubResource("FontVariation_gbhba")
+theme_override_font_sizes/font_size = 32
+text = "A regular player. Has no quirks, moves jumps and walks at a normal speed."
+autowrap_mode = 2
+
+[node name="Slide 9" type="Control" parent="Backg" unique_id=1631012518]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Text" type="Label" parent="Backg/Slide 9" unique_id=634445319]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("FontVariation_gbhba")
+theme_override_font_sizes/font_size = 50
+text = "Every player has a lifetime of only 15 seconds. After the player dies, it respawns as the next color.
+
+However...."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Slide 10" type="Control" parent="Backg" unique_id=1320081887]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Text" type="Label" parent="Backg/Slide 10" unique_id=654125654]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("FontVariation_gbhba")
+theme_override_font_sizes/font_size = 50
+text = "All your previous runs (in differnt colors) respawn as ghost NPC's, and do all the actions of their previous run.
+
+So if the red player dies after 15 seconds, yellow will spawn, and the red player becomes a ghost"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Slide 11" type="Control" parent="Backg" unique_id=1068299748]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Text" type="Label" parent="Backg/Slide 11" unique_id=1715986173]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("FontVariation_gbhba")
+theme_override_font_sizes/font_size = 50
+text = "Once you complete a full cycle and spawn back as red, the red ghost does not appear, only the ghosts of yellow, green and blue will spawn. Your current run will override the data of the red ghost."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Slide 12" type="Control" parent="Backg" unique_id=1549822835]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Text" type="Label" parent="Backg/Slide 12" unique_id=430602967]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("FontVariation_gbhba")
+theme_override_font_sizes/font_size = 50
+text = "Press <T> to move to the next player (your ghost will stay at is ending position), and <R> to restart the level.
+
+Good Luck!"
+horizontal_alignment = 1
+autowrap_mode = 2

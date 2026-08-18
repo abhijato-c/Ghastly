@@ -41,6 +41,7 @@ func LoadConfig() -> void:
 		var json = JSON.new()
 		var _res = json.parse(file.get_as_text())
 		Config = json.get_data() as Dictionary
+	BGM.UpdateVolume()
 
 func SaveConfig() -> void:
 	var file: FileAccess = FileAccess.open(ConfigPath, FileAccess.WRITE)
